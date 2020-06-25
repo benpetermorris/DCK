@@ -1,0 +1,79 @@
+.AUTODEPEND
+
+#		*Translator Definitions*
+!ifndef DEBUG
+CC = bcc32 -WX -N -G
+LIBNAME = gui.lib
+!else
+CC = bcc32 -WX -N -v
+LIBNAME = guid.lib
+!endif
+TASM = TASM /zi
+TLIB = tlib
+TLINK = tlink32
+LIBPATH = C:\CODE\LIB;C:\BC45\LIB
+INCLUDEPATH = C:\CODE\INCLUDE;C:\BC45\INCLUDE
+
+
+#		*Implicit Rules*
+.c.obj:
+  $(CC) -c {$< }
+
+.cpp.obj:
+  $(CC) -c {$< }
+
+.asm.obj:
+  $(TASM) {$< }
+
+#		*List Macros*
+
+LIB_dependencies =  \
+initgui.obj \
+inpdev.obj \
+pophelp.obj \
+fldlistb.obj \
+dialog.obj \
+coords.obj \
+label.obj \
+field.obj \
+sttext.obj \
+stbox.obj \
+fldcheck.obj \
+fldstrin.obj \
+fldbutto.obj \
+fldradio.obj \
+fldregio.obj \
+strlist.obj \
+menu.obj \
+shadow.obj \
+msgbox.obj \
+dlgload.obj \
+misc.obj
+
+#		*Explicit Rules*
+$(LIBNAME): $(LIB_dependencies)
+ $(TLIB) $(LIBNAME) @&&|
++-initgui &
++-inpdev &
++-fldlistb &
++-dialog &
++-coords &
++-label &
++-field &
++-sttext &
++-stbox &
++-fldcheck &
++-fldstrin &
++-fldbutto &
++-fldradio &
++-fldregio &
++-strlist &
++-menu &
++-msgbox &
++-shadow &
++-dlgload &
++-pophelp &
++-misc
+|
+
+

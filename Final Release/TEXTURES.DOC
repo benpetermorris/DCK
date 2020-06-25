@@ -1,0 +1,438 @@
+                   [Included with permission]
+
+        MANAGING TEXTURES AND THE "UNPEGGED" ATTRIBUTE
+        ----------------------------------------------
+
+                Scott Amspoker   (scott@basis.com)
+
+There have been recurring questions regarding the use of "pegged" and
+"unpegged" textures on walls as well as the tile rendering of textures
+by the Doom engine.  This is not just a beginner's problem.  Even the
+more sophisticated and popular PWADs submitted by netters have the
+occasional texturing oversight.  Here is an explanation of how textures
+are rendered by Doom.  The bulk of the following text deals with wall
+textures in particular.
+
+As you have already discovered, every section of wall in Doom has three
+rectangular areas that must be filled in by the Doom engine - the
+upper texture, the normal texture, and the lower texture.  Each area may
+have a different texture map assigned to it or no texture at all
+inidicated by a texture name of "-".  Any given wall can have all three
+areas exposed to the player but most walls will have one of more of these
+areas out of view.  When choosing texture maps, the PWAD creator must
+consider how Doom will use that texture map to fill in the rectangular wall
+areas and understand how Doom's default behaviour can be changed via the
+"unpegged" attributes.
+
+Doom fills in each wall area by tiling its texture map horizontally
+and vertically until the entire area is covered.  The texture map
+may be truncated horizontally and/or vertically if the wall area
+dimensions are not an even multiple of the dimensions of the texture
+map.
+
+In all cases, texture maps are placed on the horizonal axis beginning
+with the left edge of the wall and working towards the right.  The
+placement of textures on the vertical axis is more complicated and differs
+depending on various conditions described below.
+
+Some of the texture maps found in the standard DOOM.WAD file are have
+a homogeneous quality to them.  The effects of tiling/truncating
+them are not visible and the PWAD designer need not worry about
+unusual wall dimensions.
+
+On the other hand, some texture maps have distinct markings that won't
+appear correct when tiled/truncated without some intervention by the
+PWAD designer.  It is desirable that the texture maps of adjoining
+wall segments line up with each other to create a seamless composite
+wall.  Sometimes, deliberate texture mis-alignment is used as a hint
+to the player of a secret door.  NOTE: some texture maps that
+have a height other than 64 or 128 (such as a stair riser) do not
+appear to tile very well.  For some reason you might end up with
+small pink cracks in the wall texture.  While this can have a really
+cool effect, treat it as a bug.
+
+Most texture maps found in the standard WAD are 128 units high.  For
+most of the following examples, I will use the following texture map:
+
+       --------------------
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |BBBBBBBBBBBBBBBBBBBB|
+       --------------------
+
+For reference, I've labeled the top of the map with T's and the bottom with
+B's.
+
+
+THE NORMAL TEXTURE
+------------------
+
+Single-sided linedefs only require that the normal texture be defined.  In
+this case the normal texture is the entire area of wall you see from floor
+to ceiling.  By default, Doom will fill the normal texture with the assigned
+texture map starting with the top and working down.  If the wall is
+somewhat taller than the texture map, it will look like this:
+
+       --------------------
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |BBBBBBBBBBBBBBBBBBBB|
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |
+      |                    |
+       --------------------
+
+If the wall is shorter than the texture, the result would be:
+
+       --------------------
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+       --------------------
+
+Notice that the top of the texture is always at the top of the wall.
+The texture is rendered working down the wall towards the floor and
+repeated if necessary.
+
+By setting the "lower unpegged" bit in the linedef, the rendering of the
+normal texture will be performed from the bottom up instead of the top
+down.  (The "lower unpegged" bit is normally associated with the lower
+texture but also has an effect on the normal texture.)  Our tall wall
+would now look like this:
+
+       --------------------
+      |                    |
+      |                    |
+      |BBBBBBBBBBBBBBBBBBBB|
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |BBBBBBBBBBBBBBBBBBBB|
+       --------------------
+
+Our short wall would be:
+
+       --------------------
+      |                    |
+      |                    |
+      |                    |
+      |                    |
+      |BBBBBBBBBBBBBBBBBBBB|
+       --------------------
+
+Notice that the bottom of the texture map begins at the bottom of the wall
+and works up.
+
+
+THE UPPER AND LOWER TEXTURES
+----------------------------
+
+A linedef may have sectors on both sides of the line. In such a case, both
+sides of the linedef have wall definitions (sidedefs).  If the "2-sided"
+attribute is set then Doom considers each of the two sectors to
+be exposed to the other sector.  When a 2-sided line is used, the PWAD
+designer must always consider what they player should see when facing the
+line from both sides.  A 2-sided line is most often used as a see-through
+connection between two sectors (such doorways, windows, stairs, and
+platforms).  Therefore, the normal texture on both sides would typically
+be invisible ("-").  However, since the two sectors could have different
+floor and ceiling heights, the dimensions of wall space on either side
+of the line could be different.  The "upper texture" is used to handle
+the difference (if any) between adjacent ceilings.  The "lower texture"
+is similarly used to handle the different floor elevations (if any).
+
+In a nutshell, the normal texture is the area of wall that both sectors
+have in common.  This would be the portion of the wall above the higher
+of the two floors and below the lower of the two ceilings.  (Both sides of
+the line will normal textures.)  The upper texture is the area of the
+wall between the two ceiling heights.  This area is visible only
+on the side of the line with the higher ceiling.  The lower texture
+is the wall space between the two floor heights and is only visible
+on the side with the lower floor.
+
+NOTE: If the ceiling texture of both sectors is F_SKY1 then the upper
+texture between them will also be invisible regardless of its assigned
+texture map.  See the courtyard in E1M1 for an example of this.
+
+
+By default, the upper texture is tiled from the bottom up and the lower
+texture is tiled from the top down.
+
+Consider a window.  The area above the window opening is the upper texture.
+The window opening itself is the normal texture.  The area below the
+window opening is the lower texture.  Let's use the following wall
+segment with our example texture map assigned to upper and lower areas:
+
+       --------------------
+      |                    |
+      |                    |   <- upper texture
+      |BBBBBBBBBBBBBBBBBBBB|
+      |--------------------|
+      |                    |   <- normal texture ("-")
+      |                    |
+      |--------------------|
+      |TTTTTTTTTTTTTTTTTTTT|
+      |                    |   <- lower texture
+      |                    |
+       --------------------
+
+Notice how the bottom of the texture map rests on the bottom of the
+upper area whereas the lower area is just the opposite.  If this wall
+section were placed adjacent to a regular wall panel, the texture
+pattern would not line up:
+
+      --------------- --------------------
+     |TTTTTTTTTTTTTTT|                    |
+     |               |                    |
+     |               |BBBBBBBBBBBBBBBBBBBB|
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |BBBBBBBBBBBBBBB|                    |
+      --------------- --------------------
+
+
+By setting the "upper unpegged" attribute, the upper texture is rendered
+from the top down similar to a normal texture:
+
+      --------------- --------------------
+     |TTTTTTTTTTTTTTT|TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |BBBBBBBBBBBBBBB|                    |
+      --------------- --------------------
+
+Likewise, by setting the "lower unpegged" attribute, the lower texture
+will appear rendered from the bottom up:
+
+      --------------- --------------------
+     |TTTTTTTTTTTTTTT|TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |BBBBBBBBBBBBBBB|BBBBBBBBBBBBBBBBBBBB|
+      --------------- --------------------
+
+Actually, an unpegged lower texture is a tad more complicated than this.
+The bottom starting point on the texture map is not necessarily the
+bottom of the map.  Instead, Doom choses the starting point based on
+the distance between the ceiling and the floor.  The end result is that
+the bottom of the lower texture will line up with the bottom of the
+adjacent wall.  If the above example were shorter, both wall sections
+would still align:
+
+      --------------- --------------------
+     |TTTTTTTTTTTTTTT|TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |  <- bottom row cut off both walls
+      --------------- --------------------
+
+As you can see, unpegged upper and lower textures are used for seamless
+windows.
+
+NOTE: As mentioned earlier, the effect of "lower unpegged" on normal textures
+really does cause a bottom-up rendering of the texture.  If the "lower
+unpegged" attribute were set for the adjacent wall in the above example,
+it would look like this:
+
+      --------------- --------------------
+     |               |TTTTTTTTTTTTTTTTTTTT|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |               |                    |
+     |               |                    |
+     |               |--------------------|
+     |BBBBBBBBBBBBBBB|                    |  <- bottom rows don't match
+      --------------- --------------------
+
+
+APPLICATIONS OF UNPEGGED ATTRIBUTES
+-----------------------------------
+
+The following are common situations where an understanding of pegged vs.
+unpegged textures is important:
+
+Windows and fixed doorways:
+    As shown in the above example, use unpegged upper and lower textures
+    to ensure alignment with surrounding wall sections.
+
+
+Doors:
+   Doors are usually implemented as a sector where the ceiling height
+   is the same as the floor height.  The player will normally see only
+   the upper texture which will contain the image of the door.  When the
+   door "opens", the ceiling of the door sector rises.  The default
+   pegged mode is used to let the door image rise with the ceiling since
+   the upper texture is based at the bottom edge of the rising ceiling.
+
+   The walls making up the inside tracks of the door are defined as
+   normal textures since they are going to be on single-sided lines.
+   Since normal textures are rendered from the ceiling down, the
+   inside tracks will rise as the door (ceiling) rises.  This is usually
+   not the desired behaviour.  By setting the "lower unpegged" bit
+   for the inside tracks, they will remain stationary while the
+   door opens since they will be based on the non-changing floor.
+
+   The rising hallway on the other side of the acid pit in E1M3
+   is a classic example of the side walls remaining pegged so that
+   they rise with the ceiling.
+
+
+Secret doors:
+    Secret doors behave the same way as regular doors but add a little
+    more complexity to texture decisions if the door is to blend in
+    with the surrounding wall.  Normally the door is closed
+    so that the player only sees the upper texture from floor to
+    ceiling.  Since the upper texture is rendered from the bottom
+    up, the bottom of the door (where it meets the floor) will
+    show the bottom of the texture map.  If the room has a non-standard
+    ceiling clearance, the adjacent wall panel won't meet the floor
+    the same way as the closed door.  Rather than make the door
+    match the adjacent walls, you can make the adjacent walls match
+    the door by unpegging their lower texures (which re-aligns
+    the normal textures) so that everybody builds from the floor up.
+
+    The "secret" attribute may be set so that the door doesn't show
+    up on the map.  However, this will only work if the floor/ceiling
+    height of the closed door sector is less than or equal to the floor
+    height of the room sector.  In other words, if the doorway is a
+    step up from the room, the map will give away the secret by showing
+    the lines immediately beyond the door even before the door is first
+    opened.
+
+
+Switches and other wall decorations:
+    The standard textures containing wall switches are 128 units high.
+    (This also includes decorations such as "POISON" signs and
+    gargoyles).  When using these textures on a wall that is shorter, the
+    switch will move down towards the floor since the normal wall
+    texture is rendered from the ceiling down.  To keep the switch at
+    a reasonable height on the wall, set the "lower unpegged" bit.
+    The wall will build up from the floor and the switch will always
+    be at a proper height regardless of where the ceiling is.
+
+
+
+MANUAL ADJUSTMENT OF TEXTURE OFFSETS
+------------------------------------
+
+    There are situations where manipulation of the "unpegged" bits
+    will fail to create the desired alignment of wall sections.
+    Since the "unpegged" bits only affect the vertical rendering
+    of texture maps, they will not help when a horizontal adjustment
+    is needed.  Horizontal adjustments might be necessary when wall
+    sections with non-standard widths are combined to create a
+    single wall.  If the texture map style creates a noticable seam,
+    then you may adjust the horizontal and vertical offsets for
+    each wall segment.  The "X offset" parameter tells Doom how
+    far horizontally into the texture map to begin rendering.  A positive
+    value would appear to shift the texture to the left.  Likewise,
+    the "Y offset" specifies how far vertically (from the top) to
+    begin rendering.  A positive value would appear to shift the
+    texture upward.  All three textures (upper, lower, and normal)
+    are affected by these values.
+
+    At first glance it might appear that these offets are troublesome
+    to determine.  In actual practice, it is usually easy to determine
+    offsets for any given situation.
+
+    Y offsets are the most common since they are necessary to make things
+    appear aligned horizontally (by shifting a texture up and down,
+    you affect the alignment of horizontal features).  Generally,
+    there are 3 values to consider when setting the Y offset:
+
+         1) The ceiling height of the current sector.
+         2) The ceiling height of a relevant adjoining sector.
+         3) The height of the texture map.
+
+    Normally, the desired Y offset will turn out to be the difference
+    between any 2 of these values.  It is also useful to remember that
+    an offset can be negative.  For example instead of an offset of 100
+    into a 128-unit texture, an offset of -28 will do the same thing.
+    (There's also a good chance that the "28" was easier to determine from
+    the circumstances.)
+
+    The X offset is less common and is most often used to center textures
+    on wall segments that are not the same width as the texture.  This
+    happens when creating narrow doorways or placing switches and other
+    decorations on short wall segments.  In such cases, simply subtract
+    the wall length from the texture length and set the X offset to
+    half that value.
+
+    A less common situation is when textures for several contiguous wall
+    segments must appear as one wall.  Most Doom textures would still appear
+    just fine in such situations if the X offset were ignored.  However,
+    a few textures (such as computer panels) would look sloppy without
+    carefully setting the X offsets.  In such cases, the X offset for
+    a wall would be the sum of the X offset and length of the preceeding
+    wall (to the left).  If the offset gets too large then wrap it around
+    to the negative and continue.
+
+
+FLOORS AND CEILINGS
+-------------------
+
+The textures used for floors and ceilings are all 64 x 64 units.  Unlike
+wall textures, floor and ceiling textures are aligned and oriented with
+respect to the underlying map coordinate grid.  Since these textures
+are tiled globally, they will always create seamless transitions from
+one sector to the next (assuming the adjoining sector has similar
+floor/ceiling textures).
+
+Some floor/ceiling textures have specific markings on them that are
+important.  For example, some ceiling textures have a grid of lights.
+To ensure that the ceiling lights in a sector tile correctly, not only
+must the sector size be a proper multiple of a single light, but the
+sector itself must be placed on the map at an appropriate grid line.
+
+A transporter pad has a special design.  In order for the image
+on the transporter pad to appear correct, the pad must be aligned on
+a 64 x 64 map grid.
+
+There are some special stair step textures (STEP1 and STEP2).  These could
+be used for the top surface of each stair.  If you wish to use these textures
+for your stairs, make sure you pick the texure with the proper north/south or
+east/west orientation and snap your stairs to a 64-unit width and a
+32-unit depth.

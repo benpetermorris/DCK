@@ -1,0 +1,135 @@
+.AUTODEPEND
+
+#		*Translator Definitions*
+!ifdef REGISTERED
+REGD = REGISTERED
+!else
+REGD = UNREGISTERED
+!endif
+!ifdef RELEASE
+CC = bcc32 +dck32.MAK -G -D$(REGD)
+GUILIB = gui\gui.lib
+!else
+CC = bcc32 +dck32.MAK -O- -D$(REGD)
+GUILIB = gui\guid.lib
+!endif
+!ifdef HEXEN
+EXE = hck32
+!else
+EXE = dck32
+!endif
+TASM = TASM /zi
+TLIB = tlib
+TLINK = tlink32
+LIBPATH = C:\CODE\LIB;C:\BC45\LIB
+INCLUDEPATH = C:\CODE\INCLUDE;C:\BC45\INCLUDE
+
+
+#		*Implicit Rules*
+.c.obj:
+  $(CC) -c {$< }
+
+.cpp.obj:
+  $(CC) -c {$< }
+
+.asm.obj:
+  $(TASM) {$< }
+
+#		*List Macros*
+
+EXE_dependencies =  \
+ tools.obj \
+ dlgs_pick.obj \
+ dlgs_line.obj \
+ runacc.obj \
+ statbars.obj \
+ dck.obj \
+ misc.obj \
+ gfx.obj \
+ input.obj \
+ mapmem.obj \
+ mapdraw.obj \
+ wad.obj \
+ object.obj \
+ read.obj \
+ things.obj \
+ clip.obj \
+ line.obj \
+ texture.obj \
+ sector.obj \
+ menubar.obj \
+ consist.obj \
+ window.obj \
+ help.obj \
+ stairs.obj \
+ fpaint.obj \
+ config.obj \
+ gamedat.obj \
+ loadsave.obj \
+ strtable.obj \
+ preview.obj \
+ talign.obj \
+ txtmenu.obj \
+ search.obj \
+ wadmgmt.obj \
+ motif.obj \
+ editstr.obj \
+ typcnvt.obj \
+ dlgs_thg.obj \
+ fields.obj \
+ $(GUILIB)
+
+#		*Explicit Rules*
+$(EXE).exe: dck32.MAK $(EXE_dependencies)
+ $(TLINK) /ax/v/m/s/S:FF00/P-/L$(LIBPATH) @&&|
+c0x32.obj+
+tools.obj+
+dck.obj+
+misc.obj+
+gfx.obj+
+input.obj+
+runacc.obj+
+mapmem.obj+
+mapdraw.obj+
+wad.obj+
+object.obj+
+read.obj+
+things.obj+
+clip.obj+
+line.obj+
+texture.obj+
+sector.obj+
+menubar.obj+
+consist.obj+
+window.obj+
+help.obj+
+stairs.obj+
+wadmgmt.obj+
+config.obj+
+gamedat.obj+
+fpaint.obj+
+loadsave.obj+
+strtable.obj+
+preview.obj+
+txtmenu.obj+
+talign.obj+
+search.obj+
+motif.obj+
+editstr.obj+
+typcnvt.obj+
+dlgs_thg.obj+
+dlgs_lin.obj+
+fields.obj+
+statbars.obj+
+dlgs_pick.obj
+$(EXE),$(EXE)
+$(GUILIB)+
+zlib_bf.lib+
+bgi32.lib+
+dpmi32.lib+
+deacc\deacc.lib+
+acc.lib+
+cw32.lib
+|
+
+

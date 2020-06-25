@@ -1,0 +1,266 @@
+SECTOR SPECIALS:
+
+numspecials: 48
+6:Ceiling_Crush&Raise
+4:Damage_LavaFlow
+16:Damage_LavaHefty
+5:Damage_LavaWimpy
+7:Damage_Sludge
+10:Door_Close_in_30
+14:Door_Raise_in_5_Mins
+15:Friction_Low
+2:Light_Fast_Strobe
+1:Light_Flickering
+8:Light_Glowing
+3:Light_Slow_Strobe
+13:Light_SynchStrobeFast
+12:Light_SynchStrobeSlow
+; Scroll specials scroll the floor texture and push the player.
+23:Scroll_EastFast
+22:Scroll_EastNormal
+21:Scroll_EastSlow
+28:Scroll_NorthFast
+27:Scroll_NorthNormal
+26:Scroll_NorthSlow
+33:Scroll_SouthFast
+32:Scroll_SouthNormal
+31:Scroll_SouthSlow
+38:Scroll_WestFast
+37:Scroll_WestNormal
+36:Scroll_WestSlow
+9:SecretArea
+; Wind specials push objects that are flagged to be affected by wind.
+; Here's a (not sure if it's complete) list:  players, pods, ethereal
+; bow PL1&PL2 side shots, hellstaff PL1, undead warrior green axes,
+; weredragon fireballs, ophidian wimpy shots, ironlich fire column,
+; and gargoyle leader fireballs.
+41:Wind_EastNormal
+42:Wind_EastStrong
+40:Wind_EastWeak
+44:Wind_NorthNormal
+45:Wind_NorthStrong
+43:Wind_NorthWeak
+47:Wind_SouthNormal
+48:Wind_SouthStrong
+46:Wind_SouthWeak
+50:Wind_WestNormal
+51:Wind_WestStrong
+49:Wind_WestWeak
+
+THINGS (* = registered version only):
+
+numthings: 96
+Ammo_DragonClawHefty = 270 55 7 (0.862072 0.223045 0.000000) NOICON
+Ammo_DragonClawWimpy = 90 54 7 (0.862072 0.223045 0.000000) NOICON
+Ammo_CrossbowHefty = 270 19 7 (0.862072 0.223045 0.000000) NOICON
+Ammo_CrossbowWimpy = 270 18 1 (0.862072 0.223045 0.000000) NOICON
+Ammo_ElvenWandHefty = 0 12 7 (0.862072 0.223045 0.000000) NOICON
+Ammo_ElvenWandWimpy = 180 10 7 (0.862072 0.223045 0.000000) NOICON
+*Ammo_MaceHefty = 0 16 7 (0.862072 0.223045 0.000000) NOICON
+*Ammo_MaceWimpy = 180 13 7 (0.862072 0.223045 0.000000) NOICON
+*Ammo_PhoenixRodHefty = 90 23 7 (0.862072 0.223045 0.000000) NOICON
+*Ammo_PhoenixRodWimpy = 90 22 1 (0.862072 0.223045 0.000000) NOICON
+*Ammo_HellstaffHefty = 0 21 7 (0.862072 0.223045 0.000000) NOICON
+*Ammo_HellstaffWimpy = 90 20 7 (0.862072 0.223045 0.000000) NOICON
+Arti_BagOfHolding = 90 8 7 (0.845759 0.000000 0.875866) NOICON
+Arti_Egg = 90 30 7 (0.845759 0.000000 0.875866) NOICON
+Arti_FireBomb = 90 34 7 (0.845759 0.000000 0.875866) NOICON
+Arti_Fly = 90 83 23 (0.845759 0.000000 0.875866) NOICON
+Arti_HealingComplete = 90 32 7 (0.845759 0.000000 0.875866) NOICON
+Arti_HealingHefty = 270 82 7 (0.130390 0.731040 0.120777) NOICON
+Arti_HealingWimpy = 90 81 3 (0.276894 1.000000 0.023286) NOICON
+Arti_Invisibility = 90 75 7 (0.845759 0.000000 0.875866) NOICON
+Arti_Invulnerability = 90 84 7 (0.845759 0.000000 0.875866) NOICON
+Arti_Shield1 = 90 85 7 (0.845759 0.000000 0.875866) NOICON
+*Arti_Shield2 = 90 31 7 (0.845759 0.000000 0.875866) NOICON
+Arti_SuperMap = 90 35 7 (0.845759 0.000000 0.875866) NOICON
+*Arti_Teleport = 180 36 7 (0.845759 0.000000 0.875866) NOICON
+Arti_TomeOfPower = 90 86 7 (0.845759 0.000000 0.875866) NOICON
+Arti_Torch = 90 33 7 (0.845759 0.000000 0.875866) NOICON
+; Most blob things are <bl>ocking <ob>jects.
+Blob_Barrel = 0 44 7 (0.462065 0.413068 0.232307) NOICON
+*Blob_BrownPillar = 270 47 7 (0.462065 0.413068 0.232307) NOICON
+Blob_Chandelier = 0 28 7 (0.462065 0.413068 0.232307) NOICON
+Blob_FireBrazier = 270 76 7 (0.462065 0.413068 0.232307) NOICON
+*Blob_HangingCorpse = 0 51 5 (0.462065 0.413068 0.232307) NOICON
+Blob_KeyGizmoBlue = 180 94 7 (0.001007 0.001556 1.000000) NOICON
+Blob_KeyGizmoGreen = 0 95 7 (0.000381 0.372417 0.000580) NOICON
+Blob_KeyGizmoYellow = 90 96 7 (0.967025 1.000000 0.020661) NOICON
+Blob_Moss1 = 0 48 7 (0.462065 0.413068 0.232307) NOICON
+Blob_Moss2 = 0 49 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SerpentTorch = 0 27 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SkullHang35 = 90 26 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SkullHang45 = 270 25 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SkullHang60 = 0 24 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SkullHang70 = 180 17 7 (0.462065 0.413068 0.232307) NOICON
+Blob_SmallPillar = 0 29 7 (0.462065 0.413068 0.232307) NOICON
+*Blob_StalactiteLarge = 180 40 7 (0.462065 0.413068 0.232307) NOICON
+*Blob_StalactiteSmall = 0 39 0 (0.462065 0.413068 0.232307) NOICON
+Blob_StalagmiteLarge = 270 38 7 (0.462065 0.413068 0.232307) NOICON
+Blob_StalagmiteSmall = 180 37 7 (0.462065 0.413068 0.232307) NOICON
+*Blob_Volcano = 180 87 7 (0.034242 0.008667 0.413800) NOICON
+Blob_WallTorch = 0 50 5 (0.462065 0.413068 0.232307) NOICON
+Pod = 90 2035 7 (0.027329 0.093890 0.248283) NOICON
+PodGenerator = 0 43 7 (0.153890 0.075610 0.365520) NOICON
+Key_Blue = 90 79 7 (0.077990 0.279794 0.772408) NOICON
+Key_Green = 0 73 7 (0.000381 0.372417 0.000580) NOICON
+Key_Yellow = 0 80 7 (0.962294 1.000000 0.038926) NOICON
+*Monster_Weredragon = 90 70 4 (0.324137 0.005737 0.047700) NOICON
+*Monster_Sabreclaw = 270 90 15 (0.324137 0.005737 0.047700) NOICON
+Monster_Ironlich = 270 6 14 (0.324137 0.005737 0.047700) NOICON
+Monster_Gargoyle = 135 66 15 (0.324137 0.005737 0.047700) NOICON
+Monster_GargoyleLeader = 0 5 7 (0.324137 0.005737 0.047700) NOICON
+Monster_UndeadWarrior = 45 64 12 (0.324137 0.005737 0.047700) NOICON
+Monster_UndeadWarriorGhost = 270 65 6 (0.324137 0.005737 0.047700) NOICON
+*Monster_Maulotaur = 0 9 7 (0.324137 0.005737 0.047700) NOICON
+Monster_Golem = 270 68 15 (0.324137 0.005737 0.047700) NOICON
+Monster_GolemGhost = 90 69 2 (0.324137 0.005737 0.047700) NOICON
+Monster_GolemLeader = 180 45 14 (0.324137 0.005737 0.047700) NOICON
+Monster_GolemLeaderGhost = 180 46 6 (0.324137 0.005737 0.047700) NOICON
+*Monster_Ophidian = 270 92 9 (0.324137 0.005737 0.047700) NOICON
+*Monster_DSparil = 90 7 7 (0.324137 0.005737 0.047700) NOICON
+*Monster_DSparilSpot = 0 56 7 (1.000000 0.545930 0.822382) NOICON
+Monster_Disciple = 180 15 12 (0.324137 0.005737 0.047700) NOICON
+Player_1_start = 90 1 7 (0.358623 0.031907 0.207663) NOICON
+Player_2_start = 90 2 7 (0.358623 0.031907 0.207663) NOICON
+Player_3_start = 90 3 7 (0.358623 0.031907 0.207663) NOICON
+Player_4_start = 90 4 7 (0.358623 0.031907 0.207663) NOICON
+Player_Deathmatch = 90 11 23 (1.000000 1.000000 1.000000) NOICON
+; Ambient sounds are placed anywhere on a level to add them to the ambient
+; sound list.  They then play randomly in the background.
+Sound_A1_Bells = 270 1205 7 (0.000000 1.000000 0.987091) NOICON
+Sound_A1_Drops = 270 1202 7 (0.000000 1.000000 0.987091) NOICON
+Sound_A1_FastFootsteps = 90 1209 7 (0.000000 1.000000 0.987091) NOICON
+Sound_A1_Heartbeat = 90 1204 7 (0.000000 1.000000 0.987091) NOICON
+Sound_A1_Laughter = 90 1208 7 (0.000000 1.000000 0.987091) NOICON
+Sound_A1_SlowFootsteps = 90 1203 7 (0.000000 1.000000 0.987091) NOICON
+*Sound_A2_Growl = 90 1206 7 (0.000000 1.000000 0.987091) NOICON
+*Sound_A2_Magic = 270 1207 7 (0.000000 1.000000 0.987091) NOICON
+*Sound_A2_Scream = 270 1200 7 (0.000000 1.000000 0.987091) NOICON
+*Sound_A2_Squish = 270 1201 7 (0.000000 1.000000 0.987091) NOICON
+; Environment sounds are tacked on to world objects that need noise.
+Sound_E1_Wind = 270 42 7 (0.000000 1.000000 0.987091) NOICON
+*Sound_E2_Waterfall = 90 41 7 (0.000000 1.000000 0.987091) NOICON
+; Put teleport glitter on teleports.
+TeleportGlitter = 90 74 7 (0.875866 0.000000 0.262017) NOICON
+TeleportGlitterExit = 0 52 8 (0.875866 0.000000 0.262017) NOICON
+TeleportMan = 270 14 7 (0.862072 0.785668 0.272530) NOICON
+Weapon_DragonClaw = 180 53 23 (0.448271 0.164541 0.022843) NOICON
+Weapon_Crossbow = 0 2001 23 (0.448271 0.164541 0.022843) NOICON
+Weapon_Gauntlets = 90 2005 7 (0.448271 0.164541 0.022843) NOICON
+*Weapon_Mace = 90 2002 7 (0.448271 0.164541 0.022843) NOICON
+*Weapon_PhoenixRod = 90 2003 7 (0.448271 0.164541 0.022843) NOICON
+*Weapon_Hellstaff = 90 2004 7 (0.448271 0.164541 0.022843) NOICON
+
+LINE SPECIALS:
+
+numspecials: 107
+42:Button_Close_Door
+43:Button_Lower_Ceiling_To_Floor
+45:Button_Lower_Floor
+60:Button_Lower_Floor_To_Lowest
+61:Button_Open_Door
+62:Button_Plat_Down_Wait_Up_Stay
+63:Button_Raise_Door
+64:Button_Raise_Floor
+66:Button_Raise_Floor_24
+67:Button_Raise_Floor_32
+65:Button_Raise_Floor_Crush
+68:Button_Raise_Floor_Near&Change
+69:Button_Raise_To_Nearest_Floor
+70:Button_Turbo_Lower_Floor
+48:Effect_Scroll_Left
+99:Effect_Scroll_Right
+46:Impact_OpenDoor
+24:Impact_RaiseFloor
+47:Impact_RaiseFloorNear&Change
+31:Manual_Door_Open
+32:Manual_Door_Open_Blue
+33:Manual_Door_Open_Red
+34:Manual_Door_Open_Yellow
+1:Manual_Door_Raise
+26:Manual_Door_Raise_Blue
+28:Manual_Door_Raise_Red
+27:Manual_Door_Raise_Yellow
+72:Retrigger_Ceiling_Crush
+73:Retrigger_Ceiling_Crush_&_Raise
+74:Retrigger_Ceiling_Crush_Stop
+75:Retrigger_Close_Door
+76:Retrigger_Close_Door_30
+77:Retrigger_Fast_Crush_&_Raise
+80:Retrigger_Light_Turn_On
+81:Retrigger_Light_Turn_On_255
+79:Retrigger_Lights_Very_Dark
+78:Retrigger_LightsToDimmestNear
+83:Retrigger_Lower_Floor
+84:Retrigger_Lower_Floor_&_Change
+82:Retrigger_Lower_Floor_To_Lowest
+85:Retrigger_LwrFloorRaiseCeiling
+86:Retrigger_Open_Door
+87:Retrigger_Perpetual_Plat_Raise
+88:Retrigger_PlatDownWaitUpStay
+89:Retrigger_Platform_Stop
+90:Retrigger_Raise_Door
+100:Retrigger_Raise_Door_Turbo
+91:Retrigger_Raise_Floor
+92:Retrigger_Raise_Floor_24
+94:Retrigger_Raise_Floor_Crush
+96:Retrigger_Raise_ToShortTexture
+93:Retrigger_RaiseFloor24_&_Change
+95:Retrigger_RaiseFloorNear&Change
+97:Retrigger_TELEPORT
+98:Retrigger_Turbo_Lower_Floor
+7:Switch_Build_Stairs
+; Build stairs 16 creates stairs with step heights of 16 pixels.
+107:Switch_Build_Stairs_16
+49:Switch_CeilingCrush&Raise
+9:Switch_Change_Donut
+50:Switch_Close_Door
+11:Switch_EXIT
+41:Switch_Lower_Ceiling_To_Floor
+102:Switch_Lower_Floor
+23:Switch_Lower_FloorToLowest
+103:Switch_Open_Door
+21:Switch_PlatDownWaitUpStay
+29:Switch_Raise_Door
+101:Switch_Raise_Floor
+55:Switch_Raise_FloorCrush
+15:Switch_RaiseFloor24
+14:Switch_RaiseFloor32
+20:Switch_RaiseFloorNear&Change
+18:Switch_RaiseToNearestFloor
+51:Switch_SecretExit
+71:Switch_Turbo_Lower_Floor
+8:Trigger_Build_Stairs
+106:Trigger_Build_Stairs_16
+44:Trigger_Ceiling_Crush
+25:Trigger_CeilingCrush&Raise
+57:Trigger_CeilingCrushStop
+3:Trigger_Close_Door
+16:Trigger_CloseDoor30
+52:Trigger_EXIT
+6:Trigger_Fast_Crush_&_Raise
+104:Trigger_Lights_To_Dimmest_Near
+35:Trigger_Lights_Very_Dark
+12:Trigger_LightTurnOn
+13:Trigger_LightTurnOn255
+38:Trigger_Lower_Floor_To_Lowest
+19:Trigger_LowerFloor
+37:Trigger_LowerFloor&Change
+40:Trigger_LowerFloorRaiseCeiling
+2:Trigger_Open_Door
+53:Trigger_PerpetualPlatformRaise
+10:Trigger_PlatDownWaitUpStay
+54:Trigger_PlatformStop
+4:Trigger_Raise_Door
+5:Trigger_Raise_Floor
+58:Trigger_Raise_Floor_24
+59:Trigger_Raise_Floor_24&Change
+56:Trigger_Raise_FloorCrush
+22:Trigger_RaiseFloorNear&Change
+30:Trigger_RaiseToShortTexture
+105:Trigger_SecretExit
+17:Trigger_StartSlowStrobing
+39:Trigger_TELEPORT
+36:Trigger_Turbo_Lower_Floor
+

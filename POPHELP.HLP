@@ -1,0 +1,151 @@
+[Cfg_ShiftAdd]
+If this option is ON, DCK will unmark what is currently marked before marking the object(s), unless you
+hold down the Shift key.
+
+[Cfg_CombineVert]
+If this option is ON, DCK will always combine two vertices if they occupy the same position after you
+drag some objects.  If the option is OFF, DCK will prompt you before combining any vertices.
+
+[Cfg_XlateMarks]
+If this option is ON, DCK will mark the "same" objects when you switch edit modes.  For example, if you
+mark a series of Lines and then switch to Vertex mode, DCK will mark the Vertices that make up those
+lines.
+
+[Cfg_Unpeg]
+If this option is ON, DCK will automatically set the "Unpegged" flag for upper and lower textures on a
+wall that will not move.  This option makes sure that the textures above and below Windows and Archways
+will look correct.
+
+[Cfg_AutoJoin]
+If this option is ON, DCK will automatically join "close" Vertices and merge "close" Lines after a
+drag-and-drop operation is performed.  You'll probably want this On, but you can turn it off at any
+time simply by pressing the J key.
+
+[Cfg_GraphThing]
+This feature doesn't work in the unregistered version!
+Graphical Item Display means that DCK shows pictures of all the Items on the map.  This is
+a useful feature, but might slow down some older systems - select "Never" if you don't want it.
+
+[Cfg_PopHelp]
+Press Shift-F1 at any time to toggle Pop-Up help.
+
+
+[Wmg_Source]
+From this list you can add items to the Destination .WAD.  An item can be an entry from another .WAD file,
+the contents of a file on your disk, and so on.  Press Ctrl+P (Put) to store the current item in the Destination
+list, or ENTER to change the directory or view the contents of the currently selected .WAD file.
+
+[Wmg_Dest]
+This is the list of items that will be stored in the Destination .WAD.  Press Ctrl+E (Edit) to rename one
+of the entries.  The Delete key removes the current item.  Ctrl+X (eXtract) saves the current item's
+contents to a file.  Ctrl+L (Load) loads a new .WAD as the Destination .WAD, and Ctrl+S (Save) saves the
+Destination to a .WAD file.
+
+[Wmg_Replace]
+If this is checked, DCK will prompt you before creating a new entry in the Destination List that has the
+same name as an existing entry.  Doing this overwrites the previous entry's contents, so be extra careful
+if you check this option!
+
+
+[Fsave_Tag]
+Enter the tag that you'd like to save this map under, for example: "MAP01".
+
+
+[Plist_Words]
+Type in a few abbreviated words to search the list for - all the items in the list that contain the
+words you typed in will be shown.  If no items are displayed, just hit the backspace key and try again
+until you find what you're looking for.  Try entering words by subject, like "Skull" or "Guts" (yum!)
+You can use the Up/Down arrow keys without moving from this field to browse through the item list.
+
+[Plist_Items]
+This is the list of items that match the words you typed in above.  Use the arrow keys and Page Up/
+Page Down to browse through the list, and hit ENTER when you've found what you want.
+
+[Plist_Cats]
+Choose a category of items from this list.
+
+
+[StringWithList]
+Enter the type here, or part of the type and hit ENTER - a list of possible choices will be displayed.
+You can also hit F2 or double-click on the field for a list of choices.
+
+
+[Thg_Angle]
+Enter the Item's angle by typing the value in degrees.  Alternatively, you can press F2 or
+double-click on the field for a list of choices.
+
+[Thg_PolyID]
+Enter the PolyObject ID that this anchor or start-spot is connected to.  The PolyObject ID is the
+number you entered as the first argument to the PolyObj_StartLine Special. Press 'F' to find an unused
+PolyObject ID.
+
+[Thg_TID]
+Press 'F' to find an unused ID.
+
+
+[Line_Activation]
+This setting determines how the Line's Special Action is activated.  Choose from one of the six
+options with the arrow keys, or use the mouse to click on one of the fields.
+
+[Line_SideSwitch]
+Press this button to edit the Line's other Side.
+
+[Line_SideDelete]
+Press this button to delete the Line's second Side (the Side you're editing right now.)  This makes
+the Line impassable, and means it can only be viewed properly from the First side.
+
+[Line_Texture]
+Enter the name of the texture to use, or press F2 to access the texture browser.  The F3 key activates
+the texture-alignment feature, so you can display just a part of the texture - this is useful for thin
+walls, etc.
+
+
+[CS_ErrorLog]
+This is the list of errors that the consistency checker found with your map.  You can browse the list
+with the arrow keys, and use the buttons below to fix or view the selected error.  Quick-Keys are:
+'F', to make DCK fix the selected error (if it's possible); 'G', to make DCK zoom-in on the object
+in error (again, if possible); and 'R', to re-do the check for errors.
+
+
+[Stair_Reverse]
+In the preview window, the green circle represents the first stair, and the red circle represents the last.
+Check this option to reverse the direction of the stairs.
+
+
+[Tman_Texfiles]
+This is the list of .WAD files that DCK is getting information about textures from.  Press Insert to add a
+.WAD with texture information in it, or Delete to remove the selected file from the list (this doesn't
+delete the file from your disk.)  Use the Details Button to get information about what's in the selected
+file.
+
+
+[Motif_List]
+A Motif contains settings about the way you want the new areas in your level to look.  You can select the
+"active" Motif from the list by pressing ENTER or using the Set Button.  If you want to create a new Motif,
+press Insert.  To edit the selected Motif, press 'E'.  The Delete key removes the selected Motif from the
+list.
+
+
+[Sheight_Floor]
+The number you enter here is added to the height of the floor of every Marked Sector.  Enter a positive
+number to raise the floor(s), or a negative number to lower the floor(s).
+
+[Sheight_Ceiling]
+The number you enter here is added to the height of the ceiling of every Marked Sector.  Enter a positive
+number to raise the ceiling(s), or a negative number to lower the ceiling(s).
+
+[Sheight_Light]
+To brighten or darken the Marked Sectors, enter a percentage value here.
+If you enter a value of 100, the light values won't be changed.
+
+
+[Sect_Tag]
+Press 'F' to find an unused Sector Tag.
+
+[TexAlign]
+Drag the green crosshair to the position that you want the texture to be drawn from.
+
+[ClearArgs]
+Click this button to reset the values of unused special arguments to 0.
+
+[End]

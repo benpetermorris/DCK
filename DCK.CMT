@@ -1,0 +1,50 @@
+        As a long time DCK 2.2 user and fan, there are a couple of things
+that I would like to pass on about 3.2-3.3.  I should also say that I am one
+of those people who have to be hit over the head with a 2 x 4 to read
+between the lines of 2.2's banner, and register.  The first of the month
+should see a check coming your way!
+
+        I do quite a bit of checking of the new wads I get to make sure they
+have more than one player start, and that the linedefs have textures, etc.
+All the things that make for successful co-op play with a slow second machine.  
+
+        I noticed in the 3.2 version that if you had a sector tag that was
+not sequential (last tag 23 this tag 431) the checker would not match it up
+and give an error for both the linedef and the sector. I haven't come across
+this in the 4 or so hours I've used 3.3 so I figure you've fixed it, but
+thought I'd mention it just in case.
+
+        In 2.2 if a linedef has a sector tag and no type, (from some other
+editor that tags the DR type?) it is picked up by the checker, but in 3.3 it
+isn't caught.  A sector with a tag not matched by a linedef is caught by the
+checker in 3.3.
+
+        Two things, so far on my why didn't he keep list (also possibly did
+I miss the paragraph in the docs?):>
+
+        1) In 2.2 when you <alt>e the last path and file you loaded from is
+already in the browser when it comes up, in 3.3 you are back at the
+sub-directory DCK was loaded from.  Is it possible to have the old behavior
+returned in a future version? 
+
+        2) For my 40+ eyes with bifocals in the linedef panel on the bottom
+of the screen, the colored dash is very hard to distinguish, could this
+revert to the colored bar of 2.2 in a future version.
+ 
+        I have enough C, BASIC, and FORTH programming experience to know
+that sometimes the little things are the hardest to implement because of the
+other things depending on them, so something to think about.
+
+        Now that the bitches are out of the way, I want to say that DCK is a
+very powerful tool for making and checking wads, and I hope you take in
+enough to make all your effort worthwhile and make all the bitching a little
+easier to take.  
+
+        Thank you, thank you, thank you!
+
+Lyle Wichmann                   eMail:  wichmann@concentric.net
+Wichmann Communications		Phone:	(406) 355-4244
+2675 Johnson  P.O.Box 213 		(406) 355-4462
+Rudyard, MT 59540-0213
+
+

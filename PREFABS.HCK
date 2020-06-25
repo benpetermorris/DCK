@@ -1,0 +1,60 @@
+
+Teleport Pair {
+
+    Prefab {
+        Type {Teleport Pool}
+    }
+
+}
+
+Teleport_Pool 64 64 {
+
+    Create Sector {
+        Shape {-32, -32
+                32, -32
+                32,  32
+               -32, -32}
+        FloorHeight Parent + 16
+        FloorTexture F_007
+    }
+
+    Create Sector {
+        Shape Flipped { 
+            0,  -24
+            16, -16
+            24,  0
+            16,  16
+            0,   24
+           -16,  16
+           -24,  0
+           -16, -16
+        }
+
+        LineAttributes {
+            Special {
+                Type Teleport
+                Arg0 $FindNewSectorTag
+            }
+        }
+
+        FloorHeight Parent - 8
+        FloorTexture F_008
+    }
+
+    Create Thing {
+        Type Z_TeleportSmoke
+        Position {0, 0}
+    }
+
+}
+
+Teleport_Landing {
+
+    Create Thing {
+        Type Teleport_Landing
+        Position {0, 0}
+        TID $FindNewTID
+    }
+
+}
+

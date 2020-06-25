@@ -1,0 +1,357 @@
+Dialog TestDlg 0 395 631 82 "" FALSE dsCreateAbsSize | dsSimple
+
+    Type Text   4   2   " "
+    . Text      4  10   "Tag:"
+    Tag Text    20 10   " "
+    . Text      36 10   "Length:"
+    Length Text 64 10   " "
+    . Text      84 10   "Activation:"
+    Activate Text 122 10 " "
+
+; flags
+    Impassable Region 4 20 34 28 0
+    TwoSided Region 4 28 34 36 0
+
+    Repeat Region 34 20 64 28 0
+    Secret Region 34 28 64 36 0
+
+    BlockSound Region 64 20 94 28 0
+    BlockMonster Region 64 28 94 36 0
+
+    UpUnpeg Region 94 20 124 28 0
+    LowUnpeg Region 94 28 124 36 0
+
+    NeverMap Region 124 20 154 28 0
+    AlwaysMap Region 124 28 154 36 0
+
+; textures
+    ;. Box 130 2 252 41 ""
+    ;SideUpper Region 132 4 197 69 csCreateAbsSize
+    ;SideMid   Region 172 4 237 69 csCreateAbsSize
+    ;SideLower Region 212 4 277 69 csCreateAbsSize
+
+; side 1 info
+    . Box 206 4 284 41 "Side 1"
+
+    . Text 210 8 "Upper:"
+    Side1Upper Region 236 8 280 16 0
+    . Text 210 16 "Full:"
+    Side1Full Region 236 16 280 24 0
+    . Text 210 24 "Lower:"
+    Side1Lower Region 236 24 280 32 0
+    . Text 210 32 "Sector:"
+    Side1Sector Text 236 32 " "
+
+; side 2 info
+    . Box 288 4 366 41 "Side 2"
+
+    . Text 292 8 "Upper:"
+    Side2Upper Region 318 8 362 16 0
+    . Text 292 16 "Full:"
+    Side2Full Region 318 16 362 24 0
+    . Text 292 24 "Lower:"
+    Side2Lower Region 318 24 362 32 0
+    . Text 292 32 "Sector:"
+    Side2Sector Text 318 32 " "
+
+End
+
+
+
+Dialog TestDlg -1 -1 100 60 "Ooh!" FALSE 0
+
+    Angle Radio 48 33 0 "" 0
+    . Radio 44 27 0 "" 0
+    . Radio 37 25 0 "" 0
+    . Radio 30 27 0 "" 0
+    . Radio 30
+
+End
+
+Dialog TestDlg -1 -1 194 106 "Replace Textures" TRUE 0
+
+    . Box 4 4 190 22 "Upper Texture"
+    UpperOld String 8 8 60 "Replace" 8 csPromptBeside | csUpper
+    UpperNew String 100 8 60 "with" 8 csPromptBeside | csUpper
+
+    . Box 4 28 190 46 "Middle Texture"
+    MiddleOld String 8 32 60 "Replace" 8 csPromptBeside | csUpper
+    MiddleNew String 100 32 60 "with" 8 csPromptBeside | csUpper
+
+    . Box 4 52 190 70 "Lower Texture"
+    LowerOld String 8 56 60 "Replace" 8 csPromptBeside | csUpper
+    LowerNew String 100 56 60 "with" 8 csPromptBeside | csUpper
+
+    . Text 4 76 "Replace In:"
+    ReplaceIn Radio 8 84 0 "All" 0
+    . Radio 8 92 0 "Marked" 0
+
+End
+
+Dialog TestDlg -1 -1 194 102 "Motif Management" FALSE dsStatusBar
+
+    MotifList ListBox 4 4 156 84 "Motifs:" 0 "Motif_List"
+
+    BtnCreate Button 160 12 190 24 "Create" 0
+    BtnRemove Button 160 26 190 38 "Remove" 0
+    BtnEdit   Button 160 40 190 52 "Edit" 0
+    OK Button 160 82 190 94 "Set" csDefaultButton
+
+End
+
+
+Dialog TestDlg -1 -1 250 126 "Thing Editing" TRUE dsStatusBar
+
+; thing type:
+    ThingString String 4 4 114 "Thing type:" 40 0 "StringWithList"
+
+; picture:
+    Picture Region 124 12 324 140 csCreateAbsSize | csSkip
+
+; angle:
+    Angle Integer 4 24 22 "Angle:" 4 0 "Thg_Angle"
+
+; flags:
+    . Box 4 90 122 118 "Appears on:"
+        flEasy CheckBox 8   94 "Easy" 0
+        flNormal CheckBox 8 102 "Normal" 0
+        flHard CheckBox 8   110 "Hard" 0
+
+        ; not really dormant, but it makes the code easier
+        flDormant CheckBox 48 94 "Multi-Player Only" 0
+
+    . Box 126 90 176 118 "Flags"
+        flAmbush CheckBox 130 94 "Ambush" 0
+
+End
+
+
+Dialog TestDlg -1 -1 184 150 "External Tools" TRUE dsStatusBar
+
+    . Box 4 4 180 76 ""
+    Tools ListBox 8 8 128 72 "Configured tools:" 0
+
+    Description String  8 80 120 "Description:" 40 csSkip
+    Command String      8 100 120 "Command:" 40 csSkip
+
+    BtnAdd Button 134 16 174 26 "Add" 0
+    BtnEdit Button 134 28 174 38 "Edit" 0
+    BtnRemove Button 134 40 174 50 "Remove" 0
+
+End
+
+
+Dialog TestDlg -1 -1 200 150 "Tools Configuration" FALSE 0
+
+    Tools ListBox 4 4 100 72 "Tools:" 0
+
+End
+
+Dialog TestDlg 0 20 94 370 "" FALSE dsCreateAbsSize | dsSimple
+
+    Type Text   4   2   "Type:"
+    . Text      4  18   "Tag:"
+    Tag Text    20 18   " "
+    . Text      4  26   "Len:"
+    Length Text 20 26   " "
+    . Text      4  34   "Activation:"
+    Activate Text 4 42 " "
+
+; flags
+    Impassable Region 4 50 19 58 0
+    TwoSided Region 22 50 37 58 0
+    Repeat Region 4 60 19 68 0
+    BlockSound Region 22 60 37 68 0
+    BlockMonster Region 4 70 19 78 0
+    UpUnpeg Region 22 70 37 78 0
+    LowUnpeg Region 4 80 19 88 0
+    NeverMap Region 22 80 37 88 0
+    AlwaysMap Region 4 90 19 98 0
+
+    ;imp
+    ;2-s
+    ;rep
+    ;bls
+    ;blm
+    ;uun
+    ;lun
+    ;nom
+    ;alm
+
+; side 1 info
+    . Box 2 106 44 144 "Side 1"
+    Side1Upper Text 4 110 "WINNOW01"
+    Side1Lower Text 4 118 "WINNOW01"
+    Side1Full Text 4 126 "WINNOW01"
+    . Text 4 134 "Sect:"
+    Side1Sector Text 22 134 "129"
+
+; side 2 info
+    . Box 2 150 44 188 "Side 2"
+    Side2Upper Text 4 154 "WINNOW01"
+    Side2Lower Text 4 162 "WINNOW01"
+    Side2Full Text 4 170 "WINNOW01"
+    . Text 4 178 "Sect:"
+    Side2Sector Text 22 178 "130"
+
+End
+
+
+Dialog TestDlg -1 -1 163 144 "Create Door" TRUE dsStatusBar
+
+    Speed Integer 4 4 25 "Movement speed:" 3 0
+    Delay Integer 84 4 25 "Stays open for:" 3 0
+    . Text 113 12 "tics"
+
+    Key ListBox 4 26 80 76 "Key required:" 0
+
+    . Box 4 80 80 104 "Options:"
+    Secret CheckBox 8 84 "Secret!" 0
+    StayOpen CheckBox 8 92 "Stays Open" 0
+
+    . Text 84 25 "Texture:"
+    Texture Region 84 34 213 163 csSkip | csCreateAbsSize
+    TexName String 88 106 67 "" 8 csUpper
+
+End
+
+
+Dialog TestDlg -1 -1 216 180 "Create a Moving Object" FALSE 0
+
+    ObjectList ListBox 4 4 150 72 "Available Objects:" 0
+
+    BtnAdd Button 172 12 212 22 "Add" 0
+    BtnRemove Button 172 26 212 36 "Remove" 0
+
+    . HLine 4 74 212 74
+
+; special:
+    . Box 4 78 212 159 ""
+        SpecialString String 8 82 130 "Type:" 40 0 "StringWithList"
+
+        flRepeatable CheckBox 144 92 "Repeatable" 0
+
+        SpecialArg0 Integer 8   102 20 " " 3 0
+        SpecialArg1 Integer 42  102 20 " " 3 0
+        SpecialArg2 Integer 76  102 20 " " 3 0
+        SpecialArg3 Integer 110 102 20 " " 3 0
+        SpecialArg4 Integer 144 102 20 " " 3 0
+
+        ArgText Text 8 124 " "
+
+; special activation:
+    . HLine 4 136 212 136
+        Activation Radio 8 140 0 "Cross" 0 "Line_Activation"
+        ActUse Radio 48 140 0 "Use" 0 "Line_Activation"
+        ActMCross Radio 80 140 0 "Monster Cross" 0 "Line_Activation"
+        ActImpact Radio 8 148 0 "Impact" 0 "Line_Activation"
+        ActPush Radio 48 148 0 "Push" 0 "Line_Activation"
+        ActPCross Radio 80 148 0 "Projectile Cross" 0 "Line_Activation"
+
+    OK Button 172 163 212 173 "Close" csDefaultButton
+
+End
+
+
+Dialog ThingDlg -1 -1 252 180 "Thing Editing" TRUE dsStatusBar
+
+; thing type:
+    ThingString String 4 4 175 "Thing type:" 40 0
+
+; picture:
+    Picture Region 116 90 343 213 csCreateAbsSize | csSkip
+
+; height:
+    Altitude Integer 185 4 28 "Altitude:" 4 0
+; id:
+    TID Integer 219 4 28 "TID:" 3 0
+
+; thing special:
+    . Box 4 28 180 85 "Special"
+        SpecialString String 8 32 132 "Type:" 40 0
+        ;. Text 148 32 "Pick:"
+        ;PickSpecials Button 148 40 178 50 "Specials" 0
+        ;PickScripts Button 148 54 178 64 "Scripts" 0
+
+        SpecialArg0 Integer 8   52 20 " " 3 0
+        SpecialArg1 Integer 42  52 20 " " 3 0
+        SpecialArg2 Integer 76  52 20 " " 3 0
+        SpecialArg3 Integer 110 52 20 " " 3 0
+        SpecialArg4 Integer 144 52 20 " " 3 0
+
+        ArgText Text 8 74 " "
+
+; angle:
+    Angle8 Box 184 28 248 85 "Facing"
+    Angle0 Radio 194 54 0 "" csInvisible
+    Angle1 Radio 200 44 0 "" csInvisible
+    Angle2 Radio 212 38 0 "" csInvisible
+    Angle3 Radio 224 44 0 "" csInvisible
+    Angle4 Radio 230 54 0 "" csInvisible
+    Angle5 Radio 224 64 0 "" csInvisible
+    Angle6 Radio 212 70 0 "" csInvisible
+    Angle7 Radio 200 64 0 "" csInvisible
+; polyid:
+    PolyId Integer 184 28 30 "PolyID:" 3 csInvisible
+
+; flags:
+    . Box 4 90 112 155 "Flags"
+        flEasy CheckBox 8   94 "Easy" 0
+        flNormal CheckBox 8 102 "Normal" 0
+        flHard CheckBox 8   110 "Hard" 0
+
+        flFighter CheckBox 68   94 "Fighter" 0
+        flCleric CheckBox 68    102 "Cleric" 0
+        flMage CheckBox 68      110 "Mage" 0
+
+        flSingle CheckBox 8    122 "Single-player" 0
+        flCoop CheckBox 8      130 "Cooperative" 0
+        flDeathmatch CheckBox 8 138 "Deathmatch" 0
+
+        flAmbush CheckBox 68  122 "Ambush" 0
+        flDormant CheckBox 68 130 "Dormant" 0
+
+End
+
+Dialog ProjectDlg -1 -1 200 128 "Project" TRUE dsStatusBar
+
+    Name String 4 4 100 "Project name:" 40 0
+
+    Files ListBox 4 28 80 102 "Files:" 0
+
+    BtnAdd    Button 90 36 122 48 "New" 0
+    BtnRemove Button 90 52 122 64 "Remove" 0
+
+
+
+End
+
+Dialog ExtensionDlg -1 -1 184 150 "Extension Setup" TRUE dsStatusBar
+
+    . Box 4 4 180 76 ""
+    Tools ListBox 8 8 128 72 "Configured extensions:" 0
+
+    Description String 4 80 120 "Description:" 40 csSkip
+    Command String 4 100 120 "Source:" 40 csSkip
+    Command String 4 100 120 "Destination:" 40 csSkip
+
+    BtnAdd Button 134 16 174 26 "Add" 0
+    BtnEdit Button 134 28 174 38 "Edit" 0
+    BtnRemove Button 134 40 174 50 "Remove" 0
+
+End
+
+
+Dialog ToolDlg -1 -1 184 150 "Tool editing" TRUE dsStatusBar
+
+    . Box 4 4 180 76 ""
+    Tools ListBox 8 8 128 72 "Configured tools:" 0
+
+    Description String 4 80 120 "Description:" 40 csSkip
+    Command String 4 100 120 "Command:" 40 csSkip
+
+    BtnAdd Button 134 16 174 26 "Add" 0
+    BtnEdit Button 134 28 174 38 "Edit" 0
+    BtnRemove Button 134 40 174 50 "Remove" 0
+
+End

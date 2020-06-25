@@ -1,0 +1,916 @@
+@ME.FORMAT                                                         R
+*MotifEdit
+Motifs
+
+Motifs
+------
+
+A Motif is a set of defaults that DCK uses to decorate new areas
+that you create on the map.  Each motif contains data for
+information like Wall textures, Floor and Ceiling textures and
+light levels.  When you create a new area, DCK uses the Current
+Motif to decorate it with the settings you've entered for the
+floor and wall textures, etc.
+
+You can create as many motifs as you like using the Motif Editor
+(Alt+M, or select it from the Edit menu.)  You also use the
+Editor to select a motif to be used with the new areas.
+
+ > The current Motif is displayed on the Main status bar next
+   to the current zoom size.
+
+DCK maintains a separate list of Motifs for each game that you
+work with.  You can import a list of Motifs from one game into
+another, but make sure that the textures in the motifs are
+available in the game you import them to.
+
+*GRID
+Grid Commands
+
+Using the grid
+--------------
+
+The map grid helps you design symmetrical maps easily.  There
+are two different settings that affect the grid: Grid
+Display, and Snap to Grid.
+
+ > You can change the size of the grid with the [ and ] keys.
+
+When the grid display is on, DCK draws each grid line in blue
+under the map.  Grid display does not affect the "snap to grid"
+mode.
+
+ > Press 'G' to toggle the grid display.
+
+When Snap to Grid is on, new objects (such as new lines and
+new things) are moved to the nearest grid point.
+
+ > Press 'P' to change the snap mode.
+
+ There are three snap to grid modes: None, Grid, and Vertices.
+ "None" performs no snapping at all, "Grid" means snap only to
+ grid points, and "Vertices" means snap to the closest grid
+ point or vertex.
+
+*RECTPOLY
+Rectangle and Polygon tools
+
+Using the Rectangle and Polygon tools
+-------------------------------------
+
+Press 'R' to access the rectangle tool, and 'N' to access the
+polygon tool.  Alternately, use the right button-toolbox and
+select either the rectangle or the polygon icons.
+
+Rectangles:
+
+    To create a rectangle, click the left mouse button and drag
+    the mouse to draw the outline of the rectangle.  Release the
+    left mouse button when you want to finish the rectangle, or
+    press ESC to abort it.
+
+Polygons:
+
+    To create a polygon, click the left mouse button and drag
+    the mouse to draw the outline of the polygon.  Polygons are
+    automatically centered on the starting position.  Release
+    the left mouse button to finish drawing the polygon, or
+    press ESC to abort it.
+
+    You can change the number of sides in the polygon using the
+    'Q' and 'W' keys.
+
+Using either tool, hold down the right mouse button to drag the
+shape around, and release it to continue drawing using the new
+position.
+
+
+*WADMANAGER
+WAD Management Utilities
+
+|C0The WAD manager
+
+WAD files are used by id games as a tidy method of storing
+collections of data used by the games.  A WAD is much like a
+directory on your computer: it contains data (like files), and a
+list of entries that describe that data (like file NAMES.)
+
+Each entry in the WAD file has a name, like "MAP03" - which, for
+example, is the data used in the third map in DOOM 2.  Along
+with the name are two numbers, one that says where the data
+starts in the WAD file, and one that says how long (that is, how
+many bytes) the data is.
+
+Each of the games looks for entries with certain names and uses
+the data from the entry for a specific purpose - for example,
+DOOM uses the data named "BOSSA1" for animating the Baron of
+Hell - BOSSA1 is one of the pictures of the Baron walking
+around.
+
+Note: A complete list of what each of the entries is used for
+in DOOM can be found in "The Unofficial DOOM Specs", Written by
+Matthew S. Fell (msfell@aol.com).
+
+
+|90Here's how it works:
+
+ With the manager, you create a list of data objects to go in a
+ WAD you're working with - data objects can be files from your
+ disk, or entries from existing .WAD files.
+
+ The list is called the "destination list", because all the
+ objects in it can be saved to disk in a WADfile.
+
+ - You can also rename entries in the destination list, so
+   creating a series of maps, for example, from a bunch of PWADs
+   with individual maps in them is very easy.
+
+ - You can load existing WADfiles into the destination by
+   pressing Alt+L.  The destination list will be cleared and
+   updated with all the entries from the wad you load.
+
+ - Nothing is saved to disk until you tell the manager to do so,
+   either by pressing Alt+S or by exiting the manager when, if
+   you've made any changes, it'll ask you if you'd like to save
+   them.
+
+ - The manager can work with patch wads (PWADs) or the initial
+   wad (IWAD), such as DOOM.WAD.
+
+
+|90Using the manager:
+
+ The WAD manager is a dialog box with two lists; the source and
+ the destination list.
+
+ The source list is a list of files in the current directory, or
+ a list of entries in a .WAD file.
+
+ The destination list is the list of data to save to the final
+ .WAD file.
+
+ Moving around the two lists is easy: Use the up and down arrow
+ keys, Page Up and Page Down, and Home and End to move the
+ highlight bar.
+
+ The following keys work in both lists:
+
+      [X] : Extracts the highlighted item to a raw file (that
+            is, just dumps its data into a plain file - not a
+            WADfile.)
+
+  [Alt+L] : Loads an existing WADfile into the destination list.
+            If you've made any changes to the WAD you're working
+            with, the manager asks you if you'd like to save
+            them before loading the new WAD.
+
+  [Alt+S] : Saves the destination list to a WADfile.
+
+
+ The following keys work in the SOURCE LIST:
+
+  [Enter] : If the highlighted item is a drive or directory, the
+            manager changes to the new location and displays the
+            files there.
+
+            If the highlighted item is a WAD file, the manager
+            displays all the entries in the .WAD.
+
+            If the highlighted item is a file or an entry in a
+            WADfile, [Enter] views the item.  Maps are
+            automatically viewed in a preview window.  Other
+            types of data can be viewed as game pictures, or a
+            hexadecimal dump (for advanced uses.)
+
+      [P] : Puts the highlighted item in the destination list.
+
+
+ The following keys work in the DESTINATION LIST:
+
+  [Enter] : Views the highlighted item.
+
+      [E] : Edits the highlighted item - so you can rename it.
+
+    [Del] : Removes the highlighted item from the list.
+
+
+*DESIGNING
+Designing Tips
+
+|C0Designing with DCK
+
+There are two main methods involved in designing a map with DCK:
+Adding to the map, and modifying the existing parts of it.  DCK
+allows you to do both very quickly.
+
+Note: Unlike other editors, DCK does not use vertices as a basis
+for drawing maps.  All drawing is done from line mode, where you
+can create new sectors with a few clicks of the mouse buttons.
+
+
+|C0Adding to the map
+
+There are two ways you can create a new area in DCK: by adding
+on to an existing sector, or by creating an entirely new sector
+(a Third, "Splitting a Sector", is discussed in the next
+section.)
+
+It all depends on where you start drawing; If you start on an
+existing line, DCK will assume you want to create an extension
+of that line's sector.  If you start drawing in a clear area
+(including areas within, but not touching, existing sectors),
+DCK will assume you want to create a new sector.
+
+Usage:
+ - To start drawing anywhere, double-click the left mouse button.
+ - To finish the current line and start a new one, press the
+   left mouse button once.
+ - To complete an _independent_ sector, click the right mouse
+   button after drawing at least two lines.  The third line will
+   automatically be connected to the first.
+ - To complete an _extension_ off an existing sector, click the
+   right mouse button once on the line you started on (but in a
+   different position from the starting point.)
+
+
+|C0Method 1: Creating an independent new sector
+
+                  1. Start drawing here (double-left click)
+                 /
+                + - - - - - - + <- 2. single left click
+                |
+  5. Single                   |
+     Right   -> |
+     Click                    |
+                |
+                + - - - - - - + <- 3. single left click
+                 \
+                  4. single left click
+
+    After the right mouse button is pressed in step (5), DCK
+    will complete the new sector by:
+
+      If the new sector was created INSIDE an existing sector
+      (the parent sector):
+
+        - Setting the new sector with the same attributes as
+          its parent sector.
+        - Making all the drawn lines "two-sided" and "passable",
+          so the player may enter the new area.
+
+      Otherwise:
+
+        - Setting the new sector with the default attributes.
+        - Making all the drawn lines single-sided and
+          "impassable".
+
+|C0Method 2: Creating an extension off an existing sector
+
+    Example:
+
+                    1. Start drawing here (double-left click)
+                   /
+    +-------------+ - - - - - + <- 2. single left click
+    |             |
+    |             |           |   (the dashed lines represent
+    |  Sector A   |<- Line 1       drawn lines.)
+    |             |           |
+    |             |
+    +-------------+ - - - - - + <- 3. single left click
+                   \
+                     4. End drawing here (right click)
+
+    After the right mouse button is pressed in step (4), DCK
+    will complete the new sector by:
+
+        - Creating a new sector with the same attributes as
+          Sector A.
+        - Making line 1 two-sided and "passable", so the player
+          can cross through to the other sector.
+
+    NOTE: Although this example uses existing vertices as the
+    start- and end-points for the new region, this is no longer
+    necessary in v2.0.
+
+
+|C0Modifying the map
+
+This section deals primarily with modifying existing parts of
+your map.
+
+|90Drag and drop
+
+  DCK features a powerful "drag-and-drop" facility, which allows
+  you to pick up any number of objects and drag them to a
+  different location.  In THING edit mode, a variation on drag
+  and drop allows you to quickly make a copy of the objects.
+
+  To drag a series of objects, first mark all the objects you
+  want to move (or copy, in thing mode) by clicking the left
+  mouse button once on each object.
+
+  When you're done marking the objects, highlight any one of
+  them and hold down the left mouse button.  Drag the objects to
+  the new location and release the left mouse button to drop
+  them there.
+
+    Tip: While you're dragging the objects, all the basic
+    features of DCK can still be used, such as zooming and
+    repositioning the map, turning on and off the grid and snap
+    to grid, and so on.
+
+    Tip: In THING mode, you can "drag-and-copy" the marked
+    objects (or a single object) simply by double-clicking and
+    dragging; that is: Click the left mouse button down, up, and
+    down in rapid succession, and while the button is still
+    down, moving the cursor.  When you release the left button,
+    a copy of the objects will be made at the new location.
+
+|90Splitting a Sector
+
+  This is one of the most often-used features in creating a map,
+  but is NOT done from Sector Mode - it's done from Line Mode.
+
+  Splitting a Sector is simply that:  Using a single line that
+  you draw, DCK will split the sector that you drew it in by
+  creating a new sector and setting the lines on one side of the
+  split-line to reference that new sector, while leaving the
+  other lines alone.
+
+  You must draw only a single line to split a sector, and that
+  line's end-points must reside on lines that reference the
+  sector you want to split.
+
+  Consider the following example:
+
+    i. The Original Sector
+                +-------------+
+                |             |
+                |             |
+                |   Sector A  |
+                |             |
+                |             |
+                +-------------+
+
+    ii. The Split Sectors (A and B)
+                +-------------+
+    1. double   |             |
+       left     |  Sector A   |
+       click -> + - - - - - - + <- 2. single right click
+                |  Sector B   |
+                |             |
+                +-------------+
+
+
+*FPAINTER
+Format Painter
+
+The format painter allows you to copy an object's attributes
+to all the marked objects.
+
+For example, suppose you wanted to make a series of sectors
+look the same as a sector that exists somewhere on your map.
+With the format painter, it's easy :
+
+        1. Mark all the sectors that you want to change.
+        2. Press Ctrl+P to start the format painter.
+        3. Highlight the sector that you want to copy from
+           and click the left mouse button once.
+
+DCK will then present you with the following menu:
+
+|90      Copy What?
+|90      ---------------
+|90      Appearance only
+|90      Floor height
+|90      Ceiling height
+|90      Both heights
+
+Select one of the options and press ENTER; DCK will then update
+all the marked sectors with the appropriate information from the
+sector you just clicked on.
+
+The format painter is available in all three major edit modes
+(Thing, Line, and Sector.)
+
+Tip: You can press F1 in the "Copy What?" menu for detailed
+information on exactly what is copied.
+
+*MN_FPAINT_LINE
+Format Painter - Line Copy
+
+The menu you see on your screen is the set of choices that tell
+DCK which parts of the "source" line you want to copy:
+
+|90  Attributes only:
+  Copies the line's attributes (ie: the settings for "Blocks
+  Monsters", "Blocks Sound", etc.)  Note that the following
+  attributes are NOT copied:
+
+      - Impassable
+      - Two-Sided
+
+|90  Textures only:
+  Where both lines (one of the marked lines and the source line)
+  require a certain texture position, the source line's texture
+  will be copied to the marked line's.
+
+|90  Sector tag and line type:
+  Copies the source line's sector tag and line type.
+
+|90  Sector tag only:
+  Copies the source line's sector tag.
+
+*MN_FPAINT_SECTOR
+Format Painter - Sector Copy
+
+The menu you see on your screen is the set of choices that tell
+DCK which parts of the "source" sector you want to copy:
+
+|90  Appearance only:
+  Copies the following parts of the source sector to all the
+  marked sectors:
+
+      - its Floor and Ceiling textures
+      - its Light Level
+      - its Type (Secret, Blinks, etc)
+
+|90  Floor height:
+  Copies the source sector's floor height.
+
+|90  Ceiling height:
+  Copies the source sector's ceiling height.
+
+|90  Both heights:
+  Guess!
+
+Note: If you select one of the last three options, DCK will ask
+you if you'd like to "fix" the textures where it's required.
+If, by changing some of the heights, different textures are
+required on the lines that "belong" to the sectors, DCK will add
+the textures automatically.
+
+*MN_FPAINT_THING
+Format Painter - Thing Copy
+
+The menu you see on your screen is the set of choices that tell
+DCK which parts of the "source" thing you want to copy:
+
+|90  Everything:
+  Copies everything (type, attributes, angle, etc) from the
+  source object to the marked objects.
+
+|90  Attributes only:
+  Copies the source thing's attributes: When it appears, its
+  "Deaf" setting, and its "Netgame" setting.
+
+|90  Angle only:
+  Copies the source thing's angle.
+
+*MN_ONELINE
+Create Sector Split or Double-Sided Line?
+
+Since you've drawn just one line, you have the option of
+creating a sector split or simply a double-sided line.
+
+A sector split uses the line you've drawn to "split" the sector
+that you drew it in into two sectors.  This is useful for
+cutting out parts off an existing sector to make areas with less
+light, or a higher floor, among other things.
+
+A double-sided line is just a line with two sides, both of which
+reference the sector that you drew the line in.  This is useful
+for making "trigger" lines - lines that activate sectors by
+walking over the line.
+
+*MN_MKDOOR
+Creating a Door
+
+###
+
+*KEYHELP
+DCK Map Editor Key Help
+
+|90Display Commands / Toggles
+   + / -           Zoom/unzoom map
+   1 - 9           Fast-zoom presets
+   Z               Fast-zoom in/out on cursor position
+   ] / [           Increase/decrease grid scale
+   Arrows          Move map around
+   Ctrl+G          Center map
+
+   G               Toggle grid on/off
+   '               Toggle fine mode on/off
+   J               Toggle auto-join mode on/off
+   P               Toggle snap to grid on/off
+   B               Toggle clipboard rectangle on/off
+   *               Toggle cursor crosshairs on/off
+   , and .         Decrease / increase selection leniency
+
+|90Marking Commands
+   Left-Click      Mark/unmark object
+   C               Clear all marks
+
+|90Clipboard Commands
+   Ctrl+Ins        Copy marked objects to clipboard
+   Ctrl+Del        Cut marked objects to clipboard
+   Ins             Copy clipboard to map
+
+|90Texture field commands
+  The following commands work in any dialog box field
+  that requires a wall or floor/ceiling texture.
+
+   F2              Access texture browser
+
+|90Edit Commands
+  The following commands are starred with a * if they
+  operate on marked objects as well as the cursor object.
+
+   L               Line tool / edit
+   R               Rectangle tool
+   N               Polygon tool
+   I               Item (Thing) tool
+   S               Sector tool
+
+   Home/End        Previous / Next mode
+   Del          *  Delete objects
+   Alt+BkSp        UNDO last map operation
+
+   Ctrl+A       *  Scale objects
+   Ctrl+O       *  Rotate objects
+   Ctrl+X       *  Align objects to cursor (X axis)
+   Ctrl+Y       *  Align objects to cursor (Y axis)
+   Ctrl+V       *  Snap objects to grid
+   Ctrl+P       *  Format painter
+
+   F7              Flip (Mirror) the selected objects horizontally
+   Shift+F7        Mirror the selected objects vertically
+
+   Alt+C           Run Consistency checker
+   Alt+G           Go to object number
+   Alt+M           Select motif
+
+   Right Button *  Edit object / Activate toolbox
+    or [Enter]
+
+
+|C0Rectangle / Polygon tool
+   Click-and-Drag starts a new rectangle / polygon.  While
+   drawing, use the following commands to change what you've
+   drawn:
+
+     Hold down the right mouse button to move what you've drawn,
+     and release it to continue resizing.
+
+     Hold down the CTRL key while drawing a polygon to constrain
+     it to a circle instead of an oval.
+
+   Release the left mouse button to complete the new object, or
+   press ESC to abort it.
+
+   The polygon tool also uses the following keys:
+
+   Q               Decrease the number of sides in the polygon
+   W               Increase the number of sides in the polygon
+
+|C0Item Tool
+   Double-Click    Create a new Item
+   Double-Click    Copy Items to a new location
+     and Drag
+
+   O               Place origin at cursor
+   I               Toggle graphical display
+   D               Adjust Item Display Filter
+
+   Ctrl+Left
+   Ctrl+Right      Rotate the Item under the cursor
+
+   Shift           Hold Shift down to display flag-toggle keys
+
+|C0Line + Vertex Tool
+   Ctrl+B          Combine lines
+   Ctrl+C       *  Split line(s) in center
+   Ctrl+E       *  Apply current motif to line
+   Ctrl+F       *  Flip lines
+   Ctrl+I       *  Add required textures
+   Ctrl+J       *  Delete line and join sectors
+   Ctrl+N       *  Normalize (removes tags/types)
+   Ctrl+R       *  Flip sidedefs
+   Ctrl+T       *  Automatic tag set
+   Ctrl+U       *  Remove unrequired textures
+   Ctrl+W       *  Align textures
+   Ctrl+Z          Create stairZ
+
+   Shift           Hold Shift down to display flag-toggle keys
+
+   Alt+1        *  Edit side 1
+   Alt+2        *  Edit side 2
+   Alt+R        *  Search and replace textures
+
+   ;               Search for first sector with the same tag
+   /               Find the next sector with the same tag
+   \               Find the previous sector with the same tag
+
+   Ctrl+LClick     Split the selected line at the cursor
+                   position
+
+|C0Sector Tool
+   Ctrl+D       *  Create door from sector
+   Ctrl+E       *  Apply current motif to sector
+   Ctrl+H       *  Raise / lower sector
+   Ctrl+L       *  Create lift from sector
+   Ctrl+N       *  Normalize (removes tags)
+   Ctrl+T       *  Automatic tag set
+   Ctrl+W       *  Align textures
+
+   ;               Search for first line with the same tag
+   /               Find the next line with the same tag
+   \               Find the previous line with the same tag
+
+|90File Commands
+   Alt+S           Save the current map (quicksave)
+   Alt+A           Save the current map (options to rename,
+                        and build nodes.)
+   Alt+E           Edit a different map
+   Alt+X           Exit DCK
+
+   Alt+W           WAD manager
+   F9              Playtest the map
+   Alt+N           Configuration
+
+|90Menu System
+   ESC             Activate menu bar
+
+   Alt+F           File Menu
+   Alt+D           Edit Menu
+   Alt+B           Object Menu
+   Alt+I           Miscellaneous Menu
+   Alt+T           Texture Menu
+   Alt+H           Help Menu
+
+|90Mouse Control
+   Click and release the left mouse button to mark/unmark
+   the object under the cursor.  To drag the object (and all
+   marked objects), hold the button down and move the objects
+   to the desired location before releasing it.  You can press
+   ESC at any time to abort the drag operation.
+
+   To mark a box of objects, click and drag the left button
+   while not on an object.
+
+   If you click and release the left mouse button when NOT on
+   an object, all the marks will be cleared.
+
+|C0   Double-left click:
+     Thing : Create a new thing.
+     Line  : Create new region (see documentation.)
+     Sector: No effect.
+
+   Click and release the right mouse button to edit the marked
+   object(s), or move the mouse to select a feature from the
+   "right button toolbox."
+
+*TEXHELP
+Texture browser keys
+
+ Up/Dn          Scroll through textures
+ Home/End       First / last in list
+ Enter          Choose this texture
+ ESC            Keep original texture
+ Alt+F          Begin a new search forward
+ /              Search again forward
+ \              Search again backward
+
+*CS_L_2SNOSD2
+"Line is 2S but has no second sidedef"
+
+In order for a line to be two-sided, it must
+have its 2S flag set AND have a second
+sidedef.  If one of these conditions is set
+without the other, the DOOM engine will
+behave strangely.
+
+Fix: Removes the line's 2S bit, and sets the
+impassable bit if not already set.
+
+*CS_L_NO2SSD2
+"Line is NOT 2S but has a second sidedef"
+
+This line has a second sidedef but its 2S
+flag is not set.  This means that the line
+will block projectiles, but will be
+see-through.
+
+Fix: Sets the line's 2S bit.
+
+*CS_SD_FTOOHIGH
+"Sidedef's transparent full tex too high"
+
+A sidedef's transparent full texture will
+"bleed" through the floor if the entire
+texture is higher than the side's sector.
+
+Fix: Removes the full texture
+
+*CS_L_VSAME
+"Line's vertex references are the same"
+
+The line in question starts and ends at the
+same VERTEX.  This is a leftover product
+from other editors.
+
+Fix: Deletes the line.
+
+*CS_L_NOSD1
+"Line has no first sidedef"
+
+In order for the DOOM engine to function
+properly, every line must have a first
+(or "right") sidedef.
+
+Fix: If the line has a second sidedef and is
+impassable/not 2S, reverses the sidedefs.
+Otherwise, does nothing.
+
+*CS_L_TYPENOTAG
+"Line has a type but no sector tag"
+
+In order for this line's type field to
+operate properly, it must have a sector tag
+of greater than 0, and at least one sector
+must have the same tag.
+
+Fix: Sets the line type to "Normal."  If
+this is not desired, press 'G' to go to the
+object and set the sector tag.
+
+*CS_L_TAGNOTYPE
+"Line has a sector tag but no type"
+
+This is just a reminder that a sector tag
+has been set, but the line's type will not
+use that tag.
+
+Fix: Removes the line's sector tag.
+
+*CS_L_TAGNOSEC
+"Linedef's sector tag is not shared by a sector."
+
+The line's sector tag has been set, but there is
+no sector with the same tag.
+
+You may have forgotten to set the desired
+sector's tag.
+
+Fix: Removes the line's sector tag and sets
+the line's type to Normal.
+
+*CS_SD_MISSTEX
+"Sidedef is missing [...] texture"
+
+This sidedef may require the missing
+texture(s).
+
+Fix: Adds the required textures to the
+sidedef.
+
+*CS_S_NOTCLOSED
+"Sector is not closed."
+
+Fatal error.
+
+This sector is not closed.  For the DOOM
+engine to display a level correctly, all
+sectors must start and end on the same
+vertex, with a series of linedefs and
+sidedefs that reference the sector along a
+path.
+
+Fix: This error cannot be fixed
+automatically.
+
+*CS_SD_FULLNOTTRANS
+"Sidedef's full texture is not transparent-able."
+
+In order for a two-sided linedef's sidedef to have
+a full (normal) texture, that texture must be made
+up of no more than one wall patch (marked as TRANS
+in the texture browser.)
+
+Fix: Removes the full texture.
+
+*CS_S_G1000
+"Sector's ceil/floor diff is greater than 1000."
+
+The DOOM engine can handle a difference of
+approximately 1000 between a sector's floor
+and ceiling heights.
+
+Fix: Lowers the ceiling height to accommodate
+this limit.
+
+*CS_S_TAGNOLINE
+"Sector's tag is not shared by a linedef."
+
+The sector's tag has been set, but there is no
+linedef with the same tag.
+
+You may have forgotten to set the desired
+linedef's tag.
+
+Fix: Removes the sector's tag.
+
+*CS_T_NOSECTOR
+"Thing is not in a sector."
+
+Now, how did it get out there?
+
+Fix: Deletes the thing.
+
+*CS_T_TOOHIGH
+"Thing is too high for its sector."
+
+The thing is too high for its sector, and
+will likely be displayed incorrectly and/or
+not move correctly if it's a monster.
+
+Fix: Deletes the thing.
+
+*CS_T_COLLIDE
+"Thing collides with other things."
+
+The thing's radius extends into the area of
+the surrounding things.  This will cause the
+thing to be "stuck" if it's a monster.
+
+Please note: Sometimes this error is not
+serious - for example, when a monster is at
+the same location as a "gettable" item such
+as a medkit or soul sphere.  The monster will
+not be stuck, because the item can be passed
+through.
+
+Fix: Deletes the thing.
+
+*CS_T_INWALL
+"Thing is partially inside a wall."
+
+The thing's radius extends into a
+surrounding wall (line.)  This will cause
+the thing to be "stuck" if it's a monster.
+
+If it's not a monster, it probably doesn't
+matter.
+
+Fix: Deletes the thing.
+
+*CS_M_NOP1
+"No player 1 start."
+
+Well, you need one of these.
+
+*CS_M_NOP234
+"Too few player starts."
+
+There are fewer than four player starts in
+this level.  The level will not be playable
+in networked cooperative mode.
+
+*CS_M_NODM
+"Too few DEATHMATCH starts."
+
+There are fewer than four deathmatch starts
+in the level.  It will not be playable in
+networked DEATHMATCH mode.
+
+*CS_M_NOEXIT
+"Missing an exit line."
+
+There is no exit line in this level.  You
+should add one.
+
+*CS_M_NOTEXIT
+"Teleporter line has no tele-exit."
+
+In order for a teleporter line to work
+properly, the sector that shares its tag
+must have a "teleporter exit" THING in it.
+
+This line's tagged sector does not.
+
+*CS_S_BADTEX
+"Sector's [floor/ceiling] texture is invalid."
+
+DCK couldn't find the sector's floor or
+ceiling texture.
+
+Fix: Sets the bad texture to the current
+default.
+
+*CS_F_VSAME
+"Object n is at the same point as object n"
+
+Two vertices are at the same point.
+
+Fix: Replaces one with the other and deletes
+the remaining.

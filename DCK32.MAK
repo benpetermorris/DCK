@@ -1,0 +1,17 @@
+-WX
+-v
+-C
+-w
+-Tm
+-Tt
+-N
+-DDOOM2
+-H=dck32.SYM
+-w-par
+-w-obs
+-w-ucp
+-w-def
+-w-sig
+-IC:\CODE\INCLUDE;C:\BC45\INCLUDE;C:\CODE\DCK\GUI
+-LC:\CODE\LIB;C:\BC45\LIB
+-P-.C

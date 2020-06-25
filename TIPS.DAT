@@ -1,0 +1,83 @@
+37
+- You can hold down Ctrl while you're dragging an Object
+or set of Objects, and the reference cross will "snap" to
+the line the cursor is over.
+- In Item Mode, you can hold down Ctrl and left-click once
+to create the last kind of Item you edited.
+- You can combine several maps into one file with the WAD
+manager (Alt+W).
+- You can browse all wall or ceiling textures by pressing F2
+in a texture name dialog box field.
+- You can toggle the display of line lengths while you're
+dragging by pressing TAB.
+- You can use all of DCK's display features - including
+snap-to-grid, grid size, zoom and pan - while you're dragging
+lines, creating polygons, rotating objects, etc.
+- In Wall/Line mode, you can split a line at any point by
+holding down Ctrl and clicking the left mouse button once.
+- You can copy the appearance of one object to another with the
+format painter in the Miscellaneous menu.
+- In Item Mode, you can copy existing Item objects by
+double-click-dragging them to another position.
+- You can quickly toggle the attributes of a Wall or
+Item by holding down Shift.
+- You can quickly tag one or more Items or Sectors to a Wall,
+or vice-versa, using the Tag-Set feature from the Object menu.
+- You can toggle Full-Screen mode by pressing 'F'.
+- You can search for an associated object with the same tag as a Line,
+Sector or Item by pressing ';' while highlighting the object.
+- In Item Mode, you can quickly rotate one Item by pressing
+Ctrl+Left and Ctrl+Right.
+- In Wall/Line Mode, you can tell DCK to automatically
+add missing textures to a Wall by pressing Ctrl+I.
+- In Wall/Line Mode, You can tell DCK to remove
+the unused textures from a Wall by pressing Ctrl+U.
+- You can quickly clear the Special Action of a Line,
+Item or Sector by pressing Ctrl+N.
+- You can apply the selected Motif to one or
+more Walls or Sectors by pressing Ctrl+E.
+- In Item Mode, you can toggle the display of
+Item Graphics by selecting Item mode again.
+- You can abort any drag, rotate, scale or draw
+operation by pressing ESC.
+- You can change the grid size by pressing [ and ].
+- You can quickly zoom in or out on
+a point in your map by pressing 'Z'.
+- You must build a map's NODES before testing it.
+- You can test your map from inside DCK by pressing F9.
+- The 1-9 and 0 keys quickly zoom to a preset value.
+- In Sector Mode, You can add to or subtract from the
+height of many Sectors' ceilings and/or floors by pressing Ctrl+H.
+- Most of the tips here can also be activated in the menus.
+- The best way to delete whole areas of a map is to delete the Lines
+that make up the areas, not the Sectors.
+- The coordinates at the top, right of the screen turn red when the
+objects you're dragging are moved to their original position.
+- In Sector Mode, you can brighten or darken
+many Sectors by pressing Ctrl+H.
+- In Item Mode, you can tell DCK to display only
+Items with certain flags set by pressing 'D'.
+- It's a good idea to use the Consistency Checker (Alt+C) often to
+ensure that your map is error-free.
+- Motifs (Alt+M) are a great way to quickly colour
+parts of your map before adding the details.
+- In Wall/Line Mode, you can automatically align
+the textures on the marked Walls by pressing Ctrl+W.
+- You can unmark all the objects in a rectangle by holding
+down the right mouse button until the toolbox disappears.
+- You can press 'C' to unmark all objects.
+- While you're creating a Rectangle or Polygon (R or N),
+hold down the right mouse button to move the object
+instead of resizing it.
+- The Registered version includes these features:
+     * A really cool WAD manager that allows you to combine two or
+       more maps into one file, and more.
+     * An Item Display Filter that will show you which Items appear,
+       for example, only on Skill 4-5.
+     * A Search Feature to find associated objects.
+     * You can view Items using the graphics from the game.
+     * You can turn off that annoying Welcome Window and get rid of
+       this Tip Box! :)
+
+Check out ORDER.FRM for details.
+

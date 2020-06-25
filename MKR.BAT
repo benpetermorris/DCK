@@ -1,0 +1,1 @@
+call mk32 -DREGISTERED %1 %2

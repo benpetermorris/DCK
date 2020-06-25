@@ -1,0 +1,49 @@
+.AUTODEPEND
+
+#		*Translator Definitions*
+CC = bcc32 -WX -v
+TASM = TASM /zi
+TLIB = tlib
+TLINK = tlink32
+LIBPATH = C:\CODE\LIB;C:\BC45\LIB
+INCLUDEPATH = C:\CODE\INCLUDE;C:\BC45\INCLUDE
+
+
+#		*Implicit Rules*
+.c.obj:
+  $(CC) -c {$< }
+
+.cpp.obj:
+  $(CC) -c {$< }
+
+.asm.obj:
+  $(TASM) {$< }
+
+#		*List Macros*
+
+EXE_dependencies =  \
+menutest.obj \
+menutest.obj \
+menu.obj \
+coords.obj \
+shadow.obj \
+inpdev.obj
+
+#		*Explicit Rules*
+menutest.exe: $(EXE_dependencies)
+ $(TLINK) /ax/v/m/s/S:FF00/P-/L$(LIBPATH) @&&|
+c0x32.obj+
+menutest.obj+
+menu.obj+
+coords.obj+
+strlist.obj+
+inpdev.obj+
+shadow.obj
+menutest,menutest
+\code\install\develop\zlib\zlib_bf.lib+
+bgi32.lib+
+dpmi32.lib+
+cw32.lib
+|
+
+

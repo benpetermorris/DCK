@@ -1,0 +1,162 @@
+STUFF YOU NEED TO KNOW.
+
+
+WHAT THIS GUI DOES
+------------------
+
+It implements dialog boxes and menus.
+
+You must call InitGUI() before doing ANYTHING else. Load the font you want
+to use for the gui beforehand. You don't have to stick to that one font
+throughout your program, but make sure it is selected before you do any
+subsequent gui operations. The font is used to calculate the size of
+dialog boxes, menus, and their fields. See "fields" for more info.
+
+Functions you need to define
+----------------------------
+
+error():
+
+Some parts of the gui call a function, error(), which is supposed to report
+an error string to the user. This function is expected to be of type:
+
+        void error(char *fmt, ...);
+
+eg:
+
+void error(char *fmt, ...)
+{
+    vprintf(fmt, &fmt+1);
+}
+
+SaveShot():
+
+void SaveShot(void);
+
+Called by inpdev.cpp when the user hits Shift+F1 (i think.) Saves a shot
+of the current screen. You can leave it blank if you want.
+
+
+GUI COLORS
+----------
+An array of shorts named 'guito256' must be defined in your main module. This
+array is used by the GUI to determine the closest match for GUI colors using a
+256-color palette. The array is a series of four shorts - the first three
+shorts are the R, G, B components of the color. The fourth is the determined
+index into the currently loaded palette. To remap the colors when you load a
+palette, use the following code:
+
+uchar findrgb( short r, short g, short b )
+{
+    ulong   curidx = -1, curdist = ULONG_MAX, dist;
+    short   i, rd, gd, bd;
+
+    for( i = 0; i < 256; i++ )
+    {
+        // pal256 is a global of RGB triples (you must declare it).
+        // fill it when you load the quake palette, or whatever.
+
+        rd = r-(long)pal256[i][0];
+        gd = g-(long)pal256[i][1];
+        bd = b-(long)pal256[i][2];
+
+        dist = ((rd*rd)+(gd*gd)+(bd*bd));
+
+        if( dist < curdist )
+        {
+            curdist = dist;
+            curidx = i;
+        }
+    }
+
+    return curidx;
+}
+
+// call this function after you load the palette into pal256, and
+// pass it the guito256 array.
+
+void convertcolortable( short table[][4] )
+{
+    short   c;
+    long    r, g, b;
+
+    for( c = 0; table[c][0] != -1; c++ )
+    {
+        r = table[c][0];
+        g = table[c][1];
+        b = table[c][2];
+
+        table[c][3] = findrgb( r, g, b );
+    }
+}
+
+Here is an example series of shorts: you may copy and paste this. It defines
+the first sixteen colors to match those in the standard VGA/EGA palette.
+
+short guito256[][4] =
+{
+    { 0, 0, 0, 0 },          //BLACK
+    { 0, 0, 100, 1 },        //BLUE
+    { 0, 170, 0, 2 },        //GREEN
+    { 0, 170, 170, 3 },      //CYAN
+    { 170, 0, 0, 4 },        //RED
+    { 170, 0, 170, 5 },      //MAGENTA
+    { 170, 85, 0, 6 },       //BROWN
+    { 220, 220, 220, 7 },    //GRAY1
+    { 160, 160, 160, 8 },    //GRAY3
+    { 85, 85, 255, 9 },      //LIGHTBLUE
+    { 85, 255, 85, 10 },     //LIGHTGREEN
+    { 85, 255, 255, 11 },    //LIGHTCYAN
+    { 255, 85, 85, 12 },     //LIGHTRED
+    { 255, 85, 255, 13 },    //LIGHTMAGENTA
+    { 255, 255, 85, 14 },    //YELLOW
+    { 255, 255, 255, 15 },   //WHITE
+    { 210, 210, 210, 94 },   //GRAY2
+    { 115, 115, 115, 106 },  //GRAY4
+    { 35, 35, 35, 6 },       //GRAY5
+    { 0, 171, 171, 194 },    //ILINE   - some of these were used by DCK
+    { 0, 0, 255, 200 },      //PLINE
+    { 30, 30, 100, 240 },    //GRID
+    { 255, 255, 255, 168 },  //WHITE2
+    { -1, -1, -1, -1 }       // this must be at the end.
+};
+
+CLR.H defines most of what you need to use with the GUI. The C_XXX color
+#definitions give indices into the palette. (For example, C_BLUE gives the
+index into the palette which most closely matches the color blue.) If you want
+to change one of the GUI's colors, use SetGuiColor(). Do NOT pass it a C_XXX
+definition; instead, give it a plain definition such as WHITE, BLACK, etc
+(defined in CLR.H.) The function GetGuiColor() returns a palette index (not
+consistent, I know :) for the given GUI color.
+
+For example, to change the GUI's dialog background color to blue:
+
+        SetGuiColor(gcDlgBkgrnd, BLUE);
+
+To get the palette index for the color, use:
+
+        GetGuiColor(gcDlgBkgrnd);
+
+In the module where guito256[][] is defined, you must #define the symbol
+_MAINMODULE before including GUI.HPP.
+
+
+FIELDS
+------
+Fields are placed in a dialog box using "dialog units", much like the
+way Windows' dialog boxes work. This is to facilitate easy font size
+changes, since the units are based on the size of the loaded font when
+InitGUI() is called.
+
+Create a field and add it to a dialog box using its constructor. Supported
+field types are:
+
+    fldCheckBox         - boolean field
+    fldRadio            - boolean group field
+    fldInteger          - integer data entry
+    fldString           - text data entry
+    fldButton           - pushbutton
+    fldListBox          - list of choices
+    fldRegion           - generic field to derive classes from
+
+

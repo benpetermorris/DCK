@@ -1,0 +1,1582 @@
+
+A note about this user's guide:
+
+This text version is NOT polished. It is a conversion from the properly
+laid-out, illustrated user's guide that comes with the registered version
+of DCK. Please see ORDER.FRM for ordering details.
+
+
+             Chapter 1
+
+             Introducing DCK
+
+
+             This user's guide will help you learn to use DCK, but it does
+             not include specific instructions for creating some of the
+             special effects found in other maps. The distribution disk that
+             you received DCK on contains invaluable reference material that
+             you should browse if you're stuck for ideas.
+
+             Table of Contents
+             Chapter 1 .....................................................1
+              Table of Contents ............................................1
+             Chapter 2 .....................................................3
+              Configuring DCK ..............................................3
+               General Options .............................................3
+               Options .....................................................3
+               Defaults ....................................................4
+               Graphical Item Display ......................................4
+             Chapter 3 .....................................................6
+              Using the Menu System ........................................6
+              Using dialog boxes ...........................................6
+               String Fields ...............................................7
+               Checkbox Fields .............................................7
+               Radio Buttons ...............................................7
+               Listbox Fields ..............................................7
+               Buttons .....................................................8
+               Making a Selection from a Choice List .......................8
+             Chapter 4 .....................................................9
+               Using the Grid ..............................................9
+               Using Snap to Grid ..........................................9
+               Marking Objects .............................................9
+             Chapter 5 ....................................................11
+              Drawing Odd-Shaped Areas ....................................11
+               Creating a New Area with the Line Tool .....................11
+               Creating a Connected Area with the Line Tool ...............11
+              Drawing Rectangles ..........................................12
+              Drawing Polygons ............................................13
+              The Auto-Join Feature .......................................14
+             Chapter 6 ....................................................15
+               Creating and Editing Items .................................15
+               Item Attributes ............................................15
+               "Special" Fields (Hexen Only) ..............................16
+               Item Flags (Checkboxes) ....................................16
+               Monster Item Flags .........................................17
+              Changing which Items are Displayed ..........................17
+              Moving Existing Items .......................................18
+             Chapter 7 ....................................................19
+              Using Motifs ................................................19
+               Selecting, Editing and Creating Motifs .....................19
+               Applying Motifs ............................................19
+              Copying the Appearance of one Object to Others ..............20
+
+
+      2   DCK 3.0 User's Guide
+
+
+              Working with Sectors ........................................20
+               Editing Sector Properties ..................................20
+               Offsetting the Height of Many Floors and Ceilings ..........21
+              Creating Doors and Lifts ....................................21
+              Working with Walls (Lines) ..................................21
+               Changing the Appearance of Walls ...........................21
+               Wall and Line Flags Explained ..............................22
+               "Special" Fields ...........................................23
+               "Flipping" Walls ...........................................24
+               Aligning the Textures on a Series of Walls .................24
+              Creating Stairs with the Stair Tool .........................24
+              Changing the Architecture of Your Map .......................25
+               Creating a Single Line .....................................25
+               Separating One Line into Two ...............................26
+               Joining Two Lines into One .................................26
+               Creating a Pillar by deleting a Sector .....................26
+               Scaling the Positions of Objects ...........................26
+               Rotating the Positions of Objects ..........................27
+               Removing Parts of Your Map .................................27
+               Joining Separate Areas .....................................28
+               Splitting a Sector .........................................28
+             Chapter 8 ....................................................29
+              Checking your Map for errors ................................29
+              The WAD Manager .............................................29
+              Using the Clipboard .........................................31
+
+
+                                                                            3
+
+
+
+             Chapter 2
+
+             Starting Up
+
+
+             When you first start the editor, you'll be asked for the type of
+             video card you have installed. If you don't recognize the name
+             of your video card on the list, select "VESA Driver" or "Auto-
+             Detect."
+
+             Now, select the video mode you want DCK to use - DCK supports
+             resolutions from 640x480 to 1280x1024, depending on your video
+             card and monitor. If you find that the resolution you select
+             makes the text in DCK appear too small, select a lower
+             resolution. On the other hand, if you find that you don't have
+             much screen space for editing your map, select a higher
+             resolution.
+
+             You can reconfigure the video card and video mode that DCK uses
+             at any time by typing "DCK /v" at the DOS prompt.
+
+             Configuring DCK
+             You can skip this section if you want to move on quickly _ just
+             press ESC when the Configuration dialog box shows up.
+
+             The first time you run DCK, the configuration dialog box is
+             displayed. You don't need to change any of the settings here _
+             the preset values will work just fine, and you can come back and
+             customize the options here at any time by selecting
+             "Configuration" from the File Menu, or by pressing Alt+N.
+
+             General Options
+
+             AutoZoom Scales: These are the zoom values that the editor jumps
+               between when the Z key is pressed.
+
+             Backups: Sets how often the editor does a backup:
+               -  Never means that a backup is never made.
+               -  Every Save means that the last version is backed up every
+                  time the file is saved.
+               -  First Save means that the last version is backed up the
+                  first time a file is saved after being loaded.
+
+
+             Options
+
+             Hold down SHIFT for additive selection: Check this if you want
+               the editor to unmark the already marked objects before
+               marking another, unless SHIFT is held down. This is a
+               familiar method for Mac users.
+
+             Always combine exact vertices: This setting means that the
+               editor will always combine vertices that occupy the same
+
+
+      4   DCK 3.0 User's Guide
+
+
+               position, instead of asking you. The editor always asks
+               before joining vertices that are "close."
+
+             Translate marks between edit modes: Means that the editor will
+               mark the Lines of a marked Sector when you switch from the
+               Sector Tool to the Line Tool.
+
+             Automatically unpeg unmoving upper/lower textures: This setting
+               tells the editor to automatically set the "upper unpegged"
+               and "lower unpegged" flags of a new Line, if it has Upper /
+               Lower areas. Setting these flags makes archways and windows
+               look better. "Unmoving" means that the flags will be set only
+               if the Line in question doesn't belong to a Sector with a
+               Sector Tag.
+
+             Map scrolls when cursor reaches screen edge: If this is set, the
+               editor will automatically scroll the map in the direction of
+               the edge that the cursor's on, but only if it's on the edge!
+
+             Ask for game-run parameters: When you test your map from within
+               the editor, it will ask you for the parameters with which to
+               run the map - skill level, the "no monsters" setting, and so
+               on. Turn this off if you'd rather skip this step and run the
+               map with the game's defaults.
+
+             Display Dialog-box PopHelp: New users should leave this on! The
+               editor will display a short description box for the Dialog
+               Box field you're currently in, if there's a description
+               available. You can toggle this setting at any time by
+               pressing Shift+F1.
+
+             Display Tips when DCK starts up: This useful feature displays a
+               quick tip on using DCK whenever you start the editor.
+
+             Defaults
+             These settings can be toggled without coming back to the
+             configuration dialog, because you might want to switch them on
+             or off many times during an editing session. The defaults you
+             select here are used when you load a new map, and when you first
+             start the editor.
+
+             Display Grid: Displays the grid (see Using the Grid, page 9) by
+               default.
+
+             AutoJoin Mode: Sets Auto-Join mode (see The Auto-Join Feature,
+               page 14) on by default.
+
+             Snap Objects ...: Sets the default "snap" mode (see Using Snap
+               to Grid, page 9.)
+
+             Graphical Item Display
+             Normally, the editor displays the Items (Monsters, Health
+             Potions, and so on) on the map as colour-coded squares.
+             Graphical Item Display is a special feature of the editor that
+
+
+                                                                            5
+
+
+             uses the pictures of the Items from the game to display them on
+             the map. This makes it much easier to discern what's in an area
+             of the map simply by looking at it. The disadvantage to this
+             feature is that it slows down the map display on older systems.
+
+             Never means that the graphical item display will never be used.
+
+             Primary means that graphical item display is the default Item
+               display mode, and that colour-coded squares are Secondary.
+
+             Secondary means that colour-coded squares is the default Item
+               display mode.
+
+             Small Icons At: When you're "zoomed out" very far, displaying
+               graphical items looks messy - the items overlap and are
+               difficult to work with. So, the editor automatically turns
+               off graphical items if the "zoom" setting is above this
+               number.
+
+             Large Icons At: When you're zoomed in, it's better to work with
+               bigger pictures of each item - the editor automatically
+               enlarges the pictures when the zoom setting is below this
+               number.
+
+             You can toggle graphical item display by switching to "Item
+             Mode" again.
+
+
+
+
+
+
+             Chapter 3
+
+             Using the Interface
+
+
+             DCK's interface is modeled after Microsoft's Windows 95
+             operating system. Most of the dialog box controls function in
+             the same way as Windows' controls, so you should have no problem
+             navigating DCK if you've used Windows.
+
+             Following is a short description of each of DCK's interface
+             elements, and how to use them.
+
+             Using the Menu System
+             To make a selection from the menu system, move the mouse cursor
+             to one of the titles on the menu bar and click the left mouse
+             button once. If you've clicked on an item with a submenu, that
+             menu will be displayed - you can now move the cursor around and
+             the menu system will follow your movements.
+
+             When you've made a choice, click the left mouse button once on
+             the item you'd like to activate. If you decide to cancel your
+             selection, click the right mouse button once.
+
+             You can also activate the menu system with the keyboard - press
+             ESC to access the menu bar, and use the arrow keys to flip
+             through each menu and the items in it. When you've made a
+             choice, press Enter to select the highlighted item. If you
+             decide to cancel your selection, press ESC to close the menu
+             system.
+
+                 Tip: You can quickly make a selection from a menu by
+                 pressing the red highlighted key of the item you've
+                 chosen.
+
+
+             Using dialog boxes
+             At various points in the editor, a dialog box will be displayed.
+             Dialog boxes are a convenient way of gathering a lot of
+             information - here's how to navigate them:
+
+             Press This...        To do This.
+             TAB / Shift+TAB      Move to the Next / Previous Field
+             Enter or F10         "Save" the Dialog Box and proceed
+             Esc or F9 or Right   "Cancel" the Dialog Box and the current
+             Mouse Button         operation
+
+             Other keys do different things based on what kind of Field
+             you're currently in. Below is a list of the types of fields, and
+             how to navigate each with the mouse and the keyboard.
+
+
+                                                                            7
+
+
+             String Fields
+             String fields are for entering text information - the name of an
+             Editing Program, for example, or number information - the
+             altitude of a floor, for example.
+
+             When you type in a String Field, the characters are added at the
+             Insertion Point - the blinking vertical bar in the field. If
+             Insert Mode is on, the rest of the string is shifted to the
+             right to make room for the new character. Otherwise, the
+             character to the right of the insertion point is replaced with
+             the key you've just pressed.
+
+             Below is a list of commands you can use to manipulate the
+             contents of the string field:
+
+             Press This...        To do This.
+             Left / Right         Move the insertion point to the
+                                  previous/next character in the field.
+             Home                 Move the insertion point to the first
+                                  character in the field
+             End                  Move the insertion point to the last
+                                  character in the field
+             Backspace            Delete the character to the left of the
+                                  insertion point
+             Delete               Delete the character to the right of the
+                                  insertion point
+             Insert               Toggle Insert / Overstrike mode
+
+
+             Checkbox Fields
+             A checkbox field is an "On / Off" setting. Toggle the checkbox
+             with the spacebar, or click the left button once on the Checkbox
+             (or its associated text) to change the setting.
+
+             Sometimes, a checkbox will have a "greyed" setting. This setting
+             means that the checkbox's state is neutral - when the Dialog Box
+             is saved, this checkbox won't be taken into account.
+
+             Radio Buttons
+             A Radio Button Group is a series of choices that are "mutually
+             exclusive" - when one is set, none of the others can be. In the
+             example to the right, the group is a choice of backup methods;
+             certainly, you couldn't have "never back up" and "back up every
+             save" selected at the same time!
+
+             Select a choice from a radio button group by clicking on one of
+             the circles, or its associated text. If you're using the
+             keyboard, the four arrow keys move the selection around - press
+             TAB or Shift+TAB to move to the next field.
+
+             Listbox Fields
+             A Listbox Field presents a scrollable list of choices, from
+             which one selection can be made. The highlighted selection
+             appears with a dark background.
+
+
+      8   DCK 3.0 User's Guide
+
+
+
+             Press This...  To do This.
+             Up / Down      Scroll the list Up and Down
+             Page Up /      Scroll the list one page Up and Down
+             Page Down
+             Home           Move to the first choice in the list
+             End            Move to the last choice in the list
+
+             You can also use the mouse to scroll the listbox. Click and hold
+             down the left button inside the box, and drag the cursor to a
+             position above (to scroll up) or below (to scroll down) the
+             listbox. Release the left button anytime to stop scrolling.
+
+             An easy way to search for an item in the listbox is to simply
+             type what you're looking for. If what you've typed in matches
+             any of the text at the beginning of an item, that item will be
+             highlighted. If the next character you enter can't be found, the
+             highlight bar won't move. You can hit backspace at any time to
+             go to the previously-found item. Use the arrow keys or the mouse
+             at any time to move the highlight bar.
+
+             Buttons
+             Buttons are very simple fields - when you click on one or press
+             the spacebar in one, the action that's titled on the button is
+             performed.
+
+             Most dialog boxes have at least two buttons, labelled "Ok" and
+             "Cancel." OK saves the contents of the dialog box, and Cancel
+             cancels the actions you were taking that brought up the dialog
+             box.
+
+             Making a Selection from a Choice List
+             A "Choice List" Dialog Box, like the one below, is used in
+             various parts of the editor to allow you to make a selection
+             from a list of available items.
+
+             The String and Listbox Fields in this dialog box work in tandem:
+             When you type words in the "Search" field, a list of all the
+             items that contain those words is displayed in the "Found items"
+             field, below it.
+
+             You don't have to type whole words - just an abbreviation
+             usually finds what you're looking for. If you see what you're
+             looking for in the list, you can use the Up and Down arrow keys
+             to select the item, and press Enter when you've made your
+             choice. You can cancel the selection anytime by pressing Escape.
+
+                 Tip: You don't have to leave the Search field to scroll
+                 through the Found Items field; the arrow keys will move
+                 the selection bar from either one.
+
+
+
+
+
+
+             Chapter 4
+
+             Navigating the Map
+
+
+             While you're working on a map, you're always viewing it from a
+             "top-down" perspective. DCK allows you move the map and to
+             "zoom" on a part of the map, showing its layout in detail.
+
+             Use the following keys to change the map display:
+
+             Press This ..  To do This.
+             Up, Down,      Move the map
+             Left, Right
+             Ctrl+G         Center the map
+             1-9, 0         Use preset zoom levels
+             + / -          Zoom in / out
+             Z              Quickly zoom in / out on the cursor
+
+             You can also use the mouse to scroll the map. First, make sure
+             that the "Map Scrolls at Screen Edge" option in the
+             Configuration dialog box (Alt+N) is checked. Now, scroll the map
+             by moving the mouse cursor to any of the four edges of the
+             screen.
+
+             Using the Grid
+             The editor has a "grid" feature that gives you an easy way to
+             line things up properly. You can use the grid to visually line
+             things up, and you can also tell the editor to "snap" objects to
+             the grid. The grid is fully adjustable, so you can keep the
+             "snap to grid" feature on and still retain a good level of
+             detail simply by turning down the grid spacing.
+
+             The default Grid Spacing is 64 - this means that each grid Point
+             on the map is 64 map units from the one next to it. The square
+             bracket keys adjust the grid spacing: `[` halves the current
+             grid spacing, and `]' doubles the spacing.
+
+             Using Snap to Grid
+             There are three Snap to Grid modes: Off, On, and Snap to Vertex.
+             Off means that the editor will never "snap" objects to the grid,
+             and On means that Jupiter is Purple. "Snap to Vertex" means that
+             objects will "snap" to the closest grid point, or the closest
+             Vertex - whichever is closest! This is useful for joining a
+             vertex to another that was created on a lower grid spacing.
+             Press `P' to toggle the Snap to Grid mode, or select it from the
+             Edit menu.
+
+             Marking Objects
+             "Marking" provides an easy way to change many objects all at
+             once. A Marked object is highlighted in red on the map. There
+             are a few ways to mark objects:
+
+
+      10  DCK 3.0 User's Guide
+
+
+             - Move the mouse cursor over the object you want to mark, and
+               click the left mouse button once. The object won't be drawn
+               in red until you move the cursor off the object.
+             - Move the mouse cursor away from any object, and hold down the
+               left mouse button and "drag out" the box. When you release
+               the button, every object contained in the box is marked.
+
+             Unmarking objects is just as easy:
+
+             - Move the mouse cursor over a marked object, and click the
+               left mouse button once. When you move the mouse away from the
+               object, it will no longer be drawn in red.
+             - Hold down the right mouse button, wait for the Cursor Pad to
+               disappear, and then "drag out" the box. When you release the
+               button, every object contained in the box is unmarked.
+             - Press `C' to unmark all objects, or select "Clear Marks" from
+               the Edit Menu.
+
+             The rest of this user's guide notes when "marked" objects come
+             into effect.
+
+
+
+
+
+
+             Chapter 5
+
+             Drawing Your Map
+
+
+             This chapter describes how to draw new areas on your map with
+             DCK's drawing tools - the Line-drawing tool, the Rectangle tool
+             and the Polygon tool. A later chapter, "Modifying the
+             Architecture of Your Map", details changing areas that have
+             already been drawn.
+
+             Drawing Odd-Shaped Areas
+             Using the Line-Drawing tool, you can create an area of any shape
+             and size. To use the tool, press 'L', or select "Line Tool" from
+             the Edit menu.
+
+             Creating a New Area with the Line Tool
+             This section covers creating a new, "unconnected" area on your
+             map.
+
+             To start drawing the area, double-click the left mouse button
+             (Step 1.) Next, drag the mouse to where you'd like the first
+             line to finish, and click the left mouse button once (Step 2.)
+
+             Repeat Step 2 until you've got a figure like the one shown to
+             the left. Now, click the right mouse button once. The figure
+             will automatically be closed, and you've got a new area!
+
+             You can perform the same steps here inside an existing area to
+             create a "sector within a sector."
+
+             Creating a Connected Area with the Line Tool
+             This section covers creating a connected area with the Line
+             Tool. A connected area means that part of the new area you draw
+             is connected to existing parts of the map. This is an easy way
+             to add new rooms and corridors to the parts of your map that are
+             already drawn. In this example, we'll be extending the new area
+             that was created in the previous section.
+
+             Move the cursor over a part of the top, right line (Point `A' in
+             the figure to the right) and double-click the left mouse button
+             (Step 1.) Now, move the cursor to the `X' in the figure and
+             click once (Step 2.)
+
+
+      12 DCK 3.0 User's Guide
+
+
+
+             Repeat Step 2 until you've got a figure like the one shown to
+             the left. Then, click the right mouse button once on Point `B'
+             to complete the area (Step 3.)
+
+             After you complete Step 3, the area you've just created will be
+             connected to the existing area with a two-sided Line - a new
+             Line that is automatically created between points A and B.
+
+                 Note: Points A and B must reside on the same existing
+                 line, and no other part of the new area must  touch
+                 existing areas while it's being drawn. These are
+                 limitations of the editor.
+
+
+             Drawing Rectangles
+             To use the rectangle tool, press 'R' or select "Rectangle Tool"
+             from the Edit menu.
+
+             To draw a rectangle, hold the left mouse button down and drag
+             the rectangle to the size you want.  Release the left mouse
+             button when you're done.
+
+             Using the rectangle tool with auto-join mode On is the quickest
+             way to create new areas in your map.  When you finish drawing
+             the rectangle, DCK will automatically connect its sides to
+             existing rooms.  For example, you can create a hallway between
+             two square rooms very easily simply by "dragging out" a
+             rectangle between them.  Remember, you must have Auto-Join mode
+             On for this to work.
+
+             There are a couple of other things to remember about the
+             rectangle tool (and any tool in DCK): If you have snap to grid
+             mode on, the four points (vertices) of the rectangle will snap
+             to the current grid size.  You can toggle any of the editor's
+             settings while you're drawing the rectangle - if you decide you
+             need a smaller grid, you needn't start all over: just press the
+             [ key a few times.
+
+             Finally, if you decide not to add the rectangle, you can hit ESC
+             while continuing to hold down the left button, and DCK will stop
+             drawing it.
+
+                 Tip: While you're creating the rectangle, you can move
+                 it to an entirely new position by holding down the
+                 right mouse button as well as the left button to drag
+                 the rectangle to a new location.  When you release the
+                 right button, you can still change the size of the
+                 rectangle by moving the mouse. This feature also
+                 applies to Polygons.
+
+
+                                                                           13
+
+
+             Drawing Polygons
+             To use the polygon tool, press 'N' or select "Polygon Tool" from
+             the Edit menu.
+
+             To draw a polygon, hold the left mouse button down and drag the
+             polygon to the size you want.  Release the left mouse button
+             when you're done.  If you have Auto-Join mode on, DCK will
+             automatically connect the polygon's sides to existing lines - if
+             they overlap, of course.
+
+
+      14 DCK 3.0 User's Guide
+
+
+             The following keys control how the polygon is drawn:
+
+             Press     To do This.
+             This ..
+             Q and W   Decrease / Increase the number of sides in the
+                       polygon
+             A and E   Rotate the Polygon
+             Ctrl      Hold down Ctrl to constrain the polygon to a circle
+
+             Just like the Rectangle Tool, if you have snap to grid mode on,
+             the vertices of the polygon will snap to the current grid size.
+             You can toggle any of the editor's settings while you're drawing
+             the polygon - if you decide you need a smaller grid, you needn't
+             start all over: just press the [ key a few times.
+
+             Finally, if you decide you don't want to add a polygon, you can
+             hit ESC while continuing to hold down the left button, and DCK
+             will stop drawing it.
+
+             The Auto-Join Feature
+             When Auto-Join mode is on, DCK automatically joins "close" parts
+             of the map when the map is modified. This is useful for
+             connecting areas by dragging them together (see Joining Separate
+             Areas, page 28.)
+
+             If Auto-Join mode is so useful, why would you want to turn it
+             off? When you're working in crowded areas of your map, sometimes
+             DCK will join parts of the map that you didn't want joined. You
+             can toggle Auto-Join mode with the `J' key, or select it from
+             the Miscellaneous menu.
+
+                 Tip: If DCK joins something you didn't intend to be
+                 joined, you can always "undo" the last action by
+                 pressing Alt+Backspace. Then, turn off Auto-Join mode
+                 and try again.
+
+
+                                                                           15
+
+
+
+             Chapter 6
+
+             Adding Monsters and
+             Other Items
+
+
+             Items are the non-architectural parts of a map, such as:
+
+             - Monsters that attack the player;
+             - Decorations such as lamps, pedestals and rotting corpses;
+             - Weapons like the shotgun and a magic wand;
+             - Useful Items, including health potions, ammunition and armor.
+
+             Other kinds of Items are used as "placeholders" by the game, and
+             by scripts in the game Hexen. For example, the Player 1 Start
+             Item shown below tells the game to place the first player at the
+             location of that Item. Other placeholders include:
+
+             - Teleporters work by moving the player to a specific "Teleport
+               Exit" Item;
+             - MapSpots (in Hexen) are used as placeholders by Scripts and
+               Special Actions;
+             - Environmental sounds (in Heretic and Hexen) are played near
+               Sound Items.
+
+             Creating and Editing Items
+             Press 'I' or choose "Item Tool" from the Edit Menu to access the
+             Item Tool.
+
+             - To create a new Item, double-click the left mouse button.
+             - To edit an existing Item or Items, mark the Items and click
+               the right mouse button once.
+
+             The Item Properties dialog box is displayed.
+
+             Item Attributes
+
+             Item Type: There are two ways to enter this information _ the
+               easiest is by pressing F2 or double-clicking on the field and
+               selecting an Item from the list of choices displayed (see
+               Making a Selection from a Choice List, page 8.)  The second
+               way is to simply type in the entire name of the Item.
+
+
+                 Tip: You can type a partial name in the Item Type field
+                 _ for example, "gun" _ and press Enter to see a list of
+                 Items that contain what you've typed.
+
+
+             Altitude (Hexen Only): Enter the Altitude of the Item when the
+               level is first loaded. This number is relative to the height
+               of the floor of the sector that the Item is in. This value is
+               not necessary - it can be left at 0 without any problems.
+
+
+      16 DCK 3.0 User's Guide
+
+
+             Angle: Enter the Angular direction that the Item faces when the
+               level is first loaded, or press F2 to make a selection from a
+               list of choices.
+
+                 Tip: To quickly change the direction that one item
+                 faces, move the cursor over the item and press
+                 Ctrl+Left or Ctrl+Right.
+
+
+             PolyID (Hexen Only): Enter the ID of the Poly Object that the
+               Item is associated with. For more information on Poly
+               Objects, see the Official Hexen Specifications.
+
+             Only one of the Angle and PolyID fields will be available for
+               each item - if one is shown, the other is not needed.
+
+             TID (Hexen Only): Enter the "Thing ID" of the Item. This number
+               is used to associate the Item with other actions in the game
+               - for example, you could set up an action to destroy all
+               Monster Items with a certain "Thing ID."
+
+             "Special" Fields (Hexen Only)
+             The "Special" fields in the Item Properties are what makes
+             things happen when the Item is destroyed - in the case of a
+             Monster, or another "Destroyable" Item. These fields are used in
+             the same manner as the Special Fields in the Line Properties
+             dialog box (see "Special" Fields, page 23.)
+
+             Certain Item Types require one or more Special Arguments to
+             operate correctly. In this case, the Special Type field will be
+             unavailable, and the required Argument fields will be captioned.
+             In the example above, the Player 1 Start Item can be given a
+             "Start Spot" number. See the Official Hexen Specifications for
+             details on the Arguments that certain Items require.
+
+             Item Flags (Checkboxes)
+             The following is a table of the checkboxes in the Item Edit
+             dialog box, and their meanings:
+
+             Flag Name                      Effect when Set
+             Appears on Easy                The Item appears on the Easy
+                                            Skill Level
+             Appears on Normal              The Item appears on the Normal
+                                            Skill Level
+             Appears on Hard                The Item appears on the Hard
+                                            Skill Level
+             Appears on Fighter (Hexen      The Item appears for the
+             only.)                         Fighter Class
+             Appears on Cleric (Hexen       The Item appears for the Cleric
+             only.)                         Class
+             Appears on Mage (Hexen only.)  The Item appears for the Mage
+                                            Class
+             Appears on Single-Player       The Item appears in Single-
+             (Hexen only.)                  Player mode
+
+
+                                                                           17
+
+
+             Appears on Cooperative (Hexen  The Item appears in Cooperative
+             only.)                         mode
+             Appears on Deathmatch (Hexen   The Item appears in Deathmatch
+             only.)                         mode
+             Appears on Multi-Player (non-  The Item appears only in any
+             Hexen games only.)             Multi-Player mode.
+
+             The Fighter, Cleric and Mage settings only apply for Single-
+             Player mode. Multi-Player Items appear regardless of the classes
+             playing.
+
+
+             Monster Item Flags
+             The following flags affect monster items only, even though
+             they're available for all items.
+
+             Flag     Effect when Set       Effect when Cleared
+             Name
+             Ambush   The Monster won't     The Monster will react when it
+                      react until it sees   sees a Player, when it is
+                      a Player or until it  injured, or when it hears a
+                      is injured - weapon   Player firing a weapon.
+                      sounds won't make it
+                      move.
+             Dormant  The Monster won't     The Monster will react as the
+             (Hexen   react or be injured   Ambush setting dictates.
+             only.)   until it is
+                      activated with the
+                      Thing_Activate( )
+                      Special.
+
+             Changing which Items are Displayed
+             To change which Items are displayed on the map, select "Display
+             Filter" from the Object Menu or press 'D'. The Item Filter
+             dialog box is displayed.
+
+             Each item is a 3-state checkbox, all of which are grayed by
+             default. Here's how it works:
+
+             - If a selection is ON (the checkbox is 'X'ed), the editor
+               will only display those Items whose corresponding flag is
+               ON. For example, if you 'X' the Ambush flag, the editor
+               will only display an Item if its Ambush flag is also set
+               ON.
+             - If a selection is OFF (the checkbox is cleared), the
+               editor displays an Item only if the item's identical flag
+               is set OFF.
+             - If a box is set to "don't care" (the checkbox is greyed),
+               the editor displays each Item regardless of the setting
+               of its corresponding flag.
+
+             To turn off the filter, press 'D' once more.
+
+
+      18 DCK 3.0 User's Guide
+
+
+             Moving Existing Items
+             To change the placement of an existing item or series of items
+             on your map, first mark the items you want to move. Next, move
+             the mouse cursor over one of the marked items and hold down the
+             left mouse button. When you move the mouse, all the marked items
+             will move with it - simply drag them into the desired placement
+             and release the left mouse button.
+
+                 Tip: You can copy the marked items to a new position
+                 (instead of simply moving them) by double-clicking the
+                 left mouse button and dragging before completing the
+                 second click. So; press down, up, down, and then drag.
+
+
+
+
+
+
+             Chapter 7
+
+             Changing the Architecture
+             of Your Map
+
+
+             DCK features a powerful set of tools for changing the appearance
+             and architecture of your map.
+
+             Using Motifs
+             A "Motif" is a set of textures and other information that is
+             used to "colour" an area on your map. For example, you could
+             create a Motif with a medeival theme - stone walls, rock floors
+             and a low light level - and apply that theme to any area on your
+             map with a simple command. The textures in the selected Motif
+             are also used in new areas that you create.
+
+                 Note: The selected Motif is shown on the Status Bar at
+                 the bottom of the screen.
+
+
+             Selecting, Editing and Creating Motifs
+             To select a Motif, press Alt+M or select "Motifs..." from the
+             Edit Menu. The Motif dialog box is displayed.
+
+             Available Motifs: This is the list of Motifs that are already
+               available for use. Use the mouse or the cursor keys to select
+               a Motif, and press Enter to close the dialog box and save
+               your choice.
+
+             Use the Edit button to change the contents of the highlighted
+             Motif. The New button allows you to create a new Motif, and the
+             Delete button deletes the highlighted Motif.
+
+             When you create or edit a Motif, a dialog box with the following
+             fields appears:
+
+             Motif Name: This is the name of the Motif you're editing, for
+               example "Red Bricks and Lava."
+
+             Motif Fields: The list of Fields each Motif contains. The dialog
+               field to the right of this list changes to reflect the value
+               for the highlighted Motif Field.
+
+             You can change any of the values in the Motif simply by moving
+             to the value field and typing something different. If the value
+             displayed is a wall or floor/ceiling texture, use the F2 key or
+             double-click on the field to use the Texture Browser (see page
+             22.)
+
+             Applying Motifs
+             You can apply a Motif to Walls or Sectors. When you apply a
+             Motif to a wall or a series of walls, each of the wall's non-
+
+
+      20  DCK 3.0 User's Guide
+
+
+             blank textures is replaced with the corresponding wall texture
+             in the Motif. Applying a Motif to a sector or a series of
+             sectors is more complete:
+
+             - the Motif is applied to each wall in the sector,
+             - the sector's floor and ceiling textures are changed to those
+               set in the Motif, and
+             - the sector's light level is set to the light level in the
+               Motif.
+
+             To apply the selected Motif, mark the walls or sectors you want
+             to affect and press Ctrl+E or choose "Apply Motif" from the Edit
+             Menu.
+
+             Copying the Appearance of one Object to Others
+             Most often used with sectors, the format painter is useful for
+             ensuring consistency in appearance where it's needed. It works
+             like this: Mark the objects you want to change, activate the
+             format painter, and select the object you want to copy from. To
+             activate the format painter, choose it from the Miscellaneous
+             Menu or press Ctrl+P.
+
+             After you select the object to copy from, DCK displays a menu of
+             combinations to copy. Select one of the combinations or press
+             ESC to abort the format painter operation.
+
+             Working with Sectors
+             A Sector is an area in your map that can be drawn by tracing a
+             closed path of lines starting and ending at the same point
+             (Vertex.) The following picture shows some sectors:
+
+             Editing Sector Properties
+             To edit a sector's properties, select the sector(s) you want to
+             edit and click the right mouse button once. The Sector
+             Properties dialog box appears:
+
+             Special Feature: A sector's special feature is used to create
+               effects such as blinking lights, scrolling floors and the
+               appearance of wind. Select the special feature you want to
+               use from this list.
+
+                 Note: The sector features available depends on the game
+                 you're creating a map for - for example, windy sectors
+                 and scrolling floors are only available in Heretic and
+                 Hexen.
+
+
+             Floor/Ceiling Textures: Change the appearance of the floor and
+               ceiling by selecting a texture from these lists, or press F2
+               to make a selection with the texture browser.
+
+             Floor/Ceiling Heights: Enter the altitude of the floor and
+               ceiling here. Negative numbers are allowed.
+
+
+                                                                           21
+
+
+             Light Level: Enter the light level of the sector(s). The valid
+               range for the light level is between 0 and 255.
+
+             Sector Tag: Enter the "tag" of the sector(s).
+
+             Offsetting the Height of Many Floors and Ceilings
+             This feature allows you to change the height of floors and
+             ceilings by a set value. For example, you may want to raise an
+             entire area on your map by 200 units after adding a staircase
+             for the player to enter the area. To edit each sector and add
+             200 to its floor and ceiling heights would be a tedious task,
+             especially if you've added the staircase after making a complex
+             area.
+
+             To overcome this problem, simply mark all the sectors you want
+             to raise or lower, and press Ctrl+H. A dialog box with the
+             following fields appears:
+
+             Change floor height(s) by: Enter the value to add to each floor
+               height. Enter a negative number to lower the floor heights.
+
+             Change ceiling height(s) by: Enter the value to add to each
+               ceiling height.
+
+             Amplify light by: You can modify the light level of the sectors
+               by entering an amplification value here. This sets each
+               sector's light level to a percentage (the value you enter) of
+               its current light level.
+
+             Creating Doors and Lifts
+             Using the door and lift tools, you can easily create the two
+             most common kinds of moving things in a map.
+
+             Both of the tools use Sectors, so you must be in Sector Mode.
+
+             Mark the Sector, and press Ctrl+D to create a door or Ctrl+L to
+             create a lift. Depending on which game you're editing, a list of
+             choices or a dialog box is displayed with options for the door
+             or lift you want to create. Select one of the items in the list
+             or fill out the dialog box and press Enter to create the door or
+             lift.
+
+             Working with Walls (Lines)
+             The games DCK is designed to work with use 2-dimensional maps -
+             each Line on the map represents a wall in the game. The maps you
+             create are a little like traditional pencil mazes: there's only
+             one plane the pencil, or player, can move in. No area can be
+             above or below another.
+
+             Changing the Appearance of Walls
+             Lines, or Walls, are covered with Wall Textures. Each game
+             contains a set of textures that you can use on the walls in your
+             map. The editor also supports textures that are created with
+
+
+      22  DCK 3.0 User's Guide
+
+
+             other programs, like Olivier Montanuy's excellent utility,
+             WinTex.
+
+             You can change the textures that are used on a Wall using the
+             Line Tool. Press `L' or select "Line Tool" from the Edit Menu to
+             select the tool.
+
+             - To edit a single Line, first make sure no objects are marked.
+               Then, move the cursor over the Line you want to edit and
+               click the right mouse button once.
+             - If you want to edit more than one Line at a time, mark the
+               Lines you want to change and click the right mouse button
+               once.
+
+             The Line Properties dialog box is displayed.
+
+
+                 Tip: For information on the three texture slots and
+                 when each is displayed in the game, read or print out
+                 the tutorial file TEXTURES.DOC that was installed to
+                 the same directory as the editor.
+
+             To change one of the three textures, move into the field below
+             its picture and press F2, or double-click on the field. The
+             Texture Browser dialog box is displayed, from which you can
+             select a new texture to use.
+
+             Use the mouse or the following keys to make a selection from the
+             Texture Browser:
+
+             Press This...    To do This.
+             Up / Down /      Move the selection rectangle
+             Left / Right
+             Page up / Page   See the previous and next page of textures
+             down
+             Home / End       See the first and last texture
+             -                Toggle between texture pictures and texture
+                              names
+             Enter            Select the texture in the rectangle
+             Alt+F            Search for a texture
+             / and \          Search again forwards and backwards
+             Esc              Close the Browser and keep the current
+                              texture
+
+             Wall and Line Flags Explained
+             Flag        Effect when Set            Effect when Cleared
+             Impassable  The wall can't be crossed  The wall can be crossed
+                         by players or monsters.    by players or monsters,
+                                                    if it's two-sided.
+             Two-Sided   Should be set for double-  Should be cleared for
+                         sided walls.               single-sided walls.
+             Blocks      The wall can't be crossed  The wall can be crossed
+             Monsters    by monsters.               by monsters, if it's
+                                                    two-sided.
+
+
+                                                                           23
+
+
+             Unpeg       The wall's Upper textures
+             Upper                                                    The wall's Upper                         are drawn from the top-    textures are drawn from
+                         down.                      the bottom-up.
+             Unpeg       The wall's Lower textures  The wall's Lower
+             Lower       are drawn from the         textures are drawn from
+                         bottom-up.                 the top-down.
+             Secret      The wall is displayed as   The wall is displayed as
+                         single-sided on the Game   normal on the Game
+                         Automap, even if it's      Automap.
+                         double-sided.
+             Blocks      Monsters are deaf to       Monsters hear sounds
+             Sound       sound from across the      from across the wall.
+                         wall.
+             Never on    The wall is never          The wall is displayed on
+             Map         displayed on the Game      the Game Automap.
+                         Automap.
+             Always on   The wall is displayed on   The wall is not
+             Map         the Game Automap from the  displayed on the Game
+                         beginning of the level.    Automap until the player
+                                                    sees it.
+
+             "Special" Fields
+             The Special Fields are used to activate special effects in the
+             map. When a player or monster "activates" the line, its Special
+             Fields are used by the game to create an effect such as:
+
+             - a door or doors opening;
+             - teleporting the character that activated the line to another
+               position;
+             - creating an earthquake;
+             - turning off the lights in a room;
+             - and so on.
+
+             A line can be activated by a player or monster walking over the
+             line, or by a player "using" the line.
+             The effects that are available depend on the game you're editing
+             for:
+
+             The games Doom, Doom 2 and Heretic have over a hundred special
+             effects, but many of them are the same effect activated
+             differently, since these games don't allow you to choose the
+             effect and how it's activated independently of each other. For
+             example, there are four listed effects that open a remote door;
+             the only difference is how they're activated and whether they
+             can be activated more than once.
+
+             Each special effect for these games has a two-character
+             "activation code" before the special effect. The first character
+             is How the line is activated: W means Walk, as in when the line
+             is crossed; S means Spacebar, as in when the line is "used" by
+             the player; and G means Gun, as in when a bullet hits or crosses
+             the line. The second character is either "R" or "1", meaning
+             that the line can be activated Repeatedly or only once,
+             respectively.
+
+
+      24  DCK 3.0 User's Guide
+
+
+
+             The game Hexen affords you the most flexibility when choosing a
+             special effect, because it allows you to set how the line is
+             activated independently of the special effect you choose. The
+             "Activation" radio buttons and the "Repeatable" checkbox allow
+             you to set how the line is activated, and whether it can be
+             activated once, or more than once.
+
+             "Flipping" Walls
+             There are two ways to flip a wall " by flipping its direction,
+             or by flipping only its sides. Flipping the direction of a wall
+             means simply that its physical First and Second sides are
+             reversed. Flipping a wall's sides means that the information
+             contained in each side of the wall is swapped _ this only works
+             on walls with two sides, of course.
+
+             - To flip the direction of a wall or a series of walls, mark
+               the walls you want to flip and press Ctrl+F.
+             - To flip a wall's sides, or the sides on a series of walls,
+               mark the walls you want to change and press Ctrl+R.
+
+             You might want to flip a wall because some Special Actions only
+             occur if the player walks across the line from the first side.
+             For example, the Teleporter Special only works if the player
+             crosses the line from the first side to the second.
+
+             Aligning the Textures on a Series of Walls
+             The texture on each wall is drawn independently of the textures
+             on the adjacent wall. This means that two walls side by side
+             that contain the same text
+
+             Creating Stairs with the Stair Tool
+             To create stairs, you must mark two lines, which will become the
+             sides of the stairs.
+
+             After selecting two lines (from Line mode), press Ctrl+Z or
+             choose "Create Stairs..." from the Object menu. DCK will display
+             a dialog box for you to enter information about the stairs you'd
+             like to create.
+
+                 Note: The dialog box contains a simple "preview" of the
+                 direction of the steps; the green circle indicates the
+                 first step, and the red circle indicates the last.
+
+             The fields in the dialog box are:
+
+             Number of stairs: Enter the number of stairs you want to create.
+
+             Step height: Enter the height of each step. If you want to
+               create a descending staircase, enter a negative value, such
+               as -8. Remember that the maximum height the player can step
+               over (without jumping in Hexen) is 24.
+
+
+                                                                           25
+
+
+             First stair floor: Enter the height of the first step. DCK
+               automatically sets this when you press Ctrl+Z, and you can
+               change it to another value if you wish. If you change the
+               "last stair floor" field, this field is automatically updated
+               based on the number of steps and the step height.
+
+             First stair ceiling: Enter the height of the first step's
+               ceiling.
+
+             Last stair floor: Enter the height of the last step's floor.
+
+             Last stair ceiling: Enter the height of the last step's ceiling.
+               If the "Stair Ceiling" checkbox is cleared, this field is
+               ignored and all stairs have the height of the first stair's
+               ceiling.
+
+             Options for the stair tool are in checkboxes:
+
+             Reverse direction: Check this box to flip the direction of the
+               steps.
+
+             Stair ceiling: Check this to stair the ceiling as well as the
+               floor. If unchecked, the stairs will all have the same
+               ceiling height as the first stair.
+
+             Hidden: Check this box to make the staircase "hidden", so that
+               it can be made to rise from the floor. In this case, DCK sets
+               all the stair floor heights to the same as the first step's
+               floor.
+
+             After you've entered all the options, press F10 or click on OK
+             to create the stairs. DCK will create the stairs along the
+             length of the lines you marked.
+
+             Notes:
+             - Make sure that the marked lines form part of a whole sector.
+               DCK creates the step sectors in between and along the lengths
+               of the lines, which become the sides of the staircase.
+             - The lines should have nothing in between them when you create
+               the stairs. This does not include Game Items, but other lines
+               will make DCK create an improper staircase.
+             - If the staircase isn't exactly what you wanted, press
+               Alt+Backspace to delete what you've done and try again.
+
+
+             Changing the Architecture of Your Map
+             This section covers modifying existing parts of your map.
+
+             Creating a Single Line
+             Creating a single line is useful for making an invisible
+             "trigger" line that the player crosses to activate. To create
+             one line, use the Line-drawing tool and double-click anywhere
+             inside an area. Move the cursor to the new line's end-point, and
+             click the right mouse button once.
+
+
+      26  DCK 3.0 User's Guide
+
+
+
+             DCK displays a menu with two choices; select "Create 2-sided
+             line." The line becomes two-sided, with both sides referencing
+             the sector you created it in. Don't be alarmed by the
+             "unconnected" appearance of the line when you highlight its
+             sector in sector mode; as long as both sides of the line
+             reference the sector, it will appear correctly _ that is, it
+             won't appear at all _ in the game.
+
+             Separating One Line into Two
+             There are two ways to "split" a line. First, you can tell DCK to
+             split the line at its centerpoint _ then, the line becomes two
+             lines separated by a vertex at the center of the original line.
+             Second, you can add a vertex at any point along the line using
+             the mouse.
+
+             To split at the centerpoint, highlight or mark the lines you
+             want to split and press Ctrl+C, or choose "Split Lines" from the
+             Object Menu.
+
+             To split a line anywhere along its length, move the mouse cursor
+             to a point on the line (make sure it's "highlighted" in yellow.)
+             Hold down the Ctrl key, and click the left mouse button once.
+
+             Joining Two Lines into One
+             To join two lines into one, they must both face the same
+             direction. If you find that the two lines you want to join are
+             not facing in the same direction, flip one of the lines (see
+             "Flipping" Walls, page 24.)
+
+             To join the two lines by deleting the vertex that separates
+             them, highlight the vertex and press Del. The vertex will be
+             deleted and the lines joined into one.
+
+             Creating a Pillar by deleting a Sector
+             A sector that is an "island" in another sector can be deleted to
+             form a pillar from floor to ceiling. To create a pillar:
+
+             1.                Switch to Sector Mode,
+             2.                Highlight (move the mouse over) the sector you want to create
+               a pillar from,
+             3.                Press Del to delete the sector.
+
+             In fact, the easiest way to create a pillar is to draw the
+             "pillar sector" with the rectangle, polygon or line tool and
+             then delete it.
+
+             When DCK deletes a sector, it removes the side of each line that
+             references the sector, making the line one-sided (bright on the
+             map.) If a line is already one-sided, it is deleted.
+
+             Scaling the Positions of Objects
+             With DCK's scaling tool, you can make an area in your map bigger
+             or smaller. Scaling lines or sectors changes the positions of
+
+
+                                                                           27
+
+
+             the vertices that make up the lines, based on the center of all
+             the marked objects. The same applies to Items _ the positions of
+             the scaled items is based on the center of the items you've
+             marked.
+
+             Mark the objects you want to scale and press Ctrl+A or select
+             "Scale Marked Objects" from the Object Menu.
+
+             Now, use the following keys to expand and contract the positions
+             of the objects:
+
+             Press       To do This.
+             This...
+             < and >     Expand and Contract the objects
+             Enter       Finish scaling the objects
+             ` (above    Toggle fine mode. If fine mode is on, objects are
+             TAB)        scaled by a factor of +0.025. If fine mode is off,
+                         objects are scaled by a factor of +0.1 each time
+                         you press < or >.
+             ESC         Cancel the operation and return the objects to
+                         their original placement
+             Ctrl+A      Use a Dialog Box to enter an absolute scaling
+                         factor
+
+                 Tip: You can use all of DCK's map control functions -
+                 grid, snap to grid, zoom and so on - while you're
+                 scaling or rotating objects.
+
+
+             Rotating the Positions of Objects
+             Like the scaling tool, the rotation tool rotates the positions
+             of the marked objects around their cumulative center. Mark the
+             objects you want to rotate and press Ctrl+O, or select "Rotate
+             Marked Objects" from the Object Menu.
+
+             Now, use the following keys to rotate the positions of the
+             objects:
+
+             Press       To do This.
+             This...
+             < and >     Rotate the objects counterclockwise and clockwise
+             Enter       Finish scaling the objects
+             ` (above    Toggle fine mode. If fine mode is on, objects are
+             TAB)        rotated by +1.0o. If fine mode is off, objects are
+                         rotated by +10.0o each time you press < or >.
+             ESC         Cancel the operation and return the objects to
+                         their original placement
+             Ctrl+O      Use a Dialog Box to enter an absolute rotation
+                         angle
+
+             Removing Parts of Your Map
+             If you want to remove an area of your map, the best way is to
+             delete the walls that make it up. First, switch to Line Edit
+             mode by pressing L or selecting "Line Mode" from the Edit Menu.
+
+
+      28  DCK 3.0 User's Guide
+
+
+             Next, mark the lines that you want to remove from the map and
+             press the Del key or select "Delete" from the Edit Menu.
+
+                 Tip: Use the box-mark feature (see page 9) to quickly
+                 mark a rectangular area on the map.
+
+             If you accidentally delete something, choose "Undo" from the
+             Edit Menu or press Alt+Backspace to restore what was removed.
+             You must do this before making any other changes, however!
+
+             Joining Separate Areas
+             DCK's "autojoin" feature makes it easy to connect two areas.
+             Simply drag part of one area over top of another, and DCK will
+             join the two areas with a two-sided line that the player can
+             cross.
+
+             You can also join two unlike lines explicitly using the Join
+             Tool. Highlight the first of the two lines you want to join and
+             press Ctrl+B. Next, move the cursor to highlight the second of
+             the lines you want to join and press Ctrl+B again or click the
+             left mouse button once. Everything that was connected to the
+             vertices of the first line is moved to connect to the vertices
+             of the second line, and the second line is made two-sided so
+             that the player can pass through it.
+
+             Splitting a Sector
+             To split a sector, you must use the Line-drawing tool; press `L'
+             or choose "Line Tool" from the Edit Menu. Using the tool, you
+             draw the single line which will split the existing sector into
+             two.
+
+             Choose the starting point for the splitter line along the
+             outline of the sector you want to split and double-click the
+             left mouse button once. Now, move the mouse to a second point on
+             the sector and click the right mouse button once. DCK displays a
+             menu with two choices; choose "Create Sector Split." DCK splits
+             the original sector by creating a new sector on one side of the
+             line and keeping the original sector on the other side.
+
+
+                                                                           29
+
+
+
+             Chapter 8
+
+             Other Tools
+
+
+             Here, the other major tools available in DCK are described.
+
+             Checking your Map for errors
+             Over time, little errors may creep into your map. Most of them
+             won't cause any big problems, but it's always nice to know that
+             they're easily found and fixed - with DCK's error checker, most
+             are.
+
+             After activating it, the checker runs through every object in
+             the map and checks it against a series of rules that have been
+             set up to detect flaws in the map's structure: Deviations from
+             the rules set down by the DOOM engine's limitations, situations
+             that may have undesired effects, and so on. A list of all the
+             errors the map checker catches can be found at the end of this
+             section.
+
+             Those objects that DCK finds as problematic are added to a list
+             of errors, which is displayed when all the checks are complete.
+             From this list, most of the errors can be "zoomed in on" and
+             fixed with a couple of keystrokes. However, some errors (such as
+             the "Sector not Closed" error) cannot be fixed automatically
+             because of their abstract nature.
+
+             To activate the checker, choose it from the Miscellaneous menu
+             or press Alt+C. The dialog box that is subsequently displayed is
+             a list of options for the checker: it will only perform the
+             kinds of checks that are selected here.
+
+             The checker displays the list of errors, from which you can:
+
+             - Get help on the current error by pressing F1. This option
+               displays a detailed description of the error, explaining how
+               it is fixed or how to fix it manually.
+             - Jump to the object in error by pressing 'G'. DCK will switch
+               to the appropriate edit tool and zoom in and center on the
+               object. This option is not always available; for example, the
+               error "Too few player starts" is a general error and cannot
+               be zoomed in on.
+             - Fix the error by pressing 'F'. If the error is a simple one,
+               such as a line missing a texture, DCK will fix it and change
+               the error list to reflect the fixed object. If you want to
+               get information on what automatically fixing a particular
+               error does, press F1.
+
+             The WAD Manager
+             Accessible from the File menu or by pressing Alt+W, DCK's WAD
+             manager allows you to edit and view .WAD files much like you'd
+             do with a DOS directory navigator. With it, you can:
+
+
+      30  DCK 3.0 User's Guide
+
+
+
+             - add entries to a WAD file from data in other WAD files or
+               from raw files anywhere on your system;
+             - combine two or more maps into one WAD file;
+             - rename existing entries in WAD files;
+             - delete existing entries from WAD files.
+
+             The WAD manager works with a "Source List" and a "Destination
+             List."  The Source list is the list of files in the current
+             directory, or the list of entries in a WAD file. The Destination
+             list is the directory of the final WAD file - the file you're
+             editing with the WAD manager.
+
+             When you start the WAD manager, the source list displays the
+             contents of the current directory, and the destination list
+             contains the contents of the WAD that you're working on in the
+             map editor. You can place any of the entries from the source
+             list into the destination list, thereby "building" the desired
+             WAD file.
+
+
+                                                                           31
+
+
+             Use the following commands while navigating the source list:
+
+             Press This...   To do This.
+             Enter           Change to the directory the highlight bar is
+                             over.
+             Enter           View the contents of the WAD file the
+                             highlight bar is over.
+             Enter           View the contents of the data file the
+                             highlight bar is over.
+             Enter           View the contents of the WAD file entry the
+                             highlight bar is over.
+             Ctrl+P          Place the data file or WAD file entry into
+                             the Destination.
+             Ctrl+X          Save the WAD file entry the highlight bar is
+                             over to a file on the disk.
+
+             Build up the destination list by copying data items (files or
+             WAD entries) from the source list into the destination. You can
+             load an existing WAD into the destination with the Load button
+             (or press Ctrl+L), and save the destination list to a WAD file
+             with the Save button (or press Ctrl+S.)
+
+             To view an entry in either of the lists, press ENTER. If the
+             entry is a map, it will be displayed. Otherwise, DCK will give
+             you the choice of displaying the entry as a "binary dump" or as
+             a game picture.
+
+             To add the highlighted source entry into the destination list,
+             click the Put button (or press Ctrl+P.) DCK will, by default,
+             save the data as its original name - if it's a file, the
+             filename without the extension; if it's a WAD entry, the name
+             from the .WAD.
+
+             If the entry you're placing in the destination already exists,
+             and the "Replace Entries" checkbox is not set, DCK will ask you
+             if you'd like to overwrite the existing entry, rename the new
+             one, or not save it at all.
+
+             To save an entry from either the destination list or the source
+             list to a raw file, press Ctrl+X.
+
+             Using the Clipboard
+             The clipboard allows you to copy a part of your map to a
+             temporary space, and then "paste" the information into another
+             part of your map - or into an entirely different map.
+
+             When you copy parts of the map to the clipboard, the "edit mode"
+             you're currently using affects what is copied, and what is
+             pasted. For example: When you're editing walls/lines, DCK is in
+             "Line Mode." If you use the copy feature from line mode, only
+             the lines you mark will be copied - none of the sectors the
+             lines reference will be copied. When you then paste the
+             information, new lines will be created, but they will reference
+             the original sectors since no new sectors have been created.
+
+
+      32  DCK 3.0 User's Guide
+
+
+
+             The best mode to use for copying complex areas of the map is
+             Sector Mode, since DCK will copy information for the sectors you
+             mark as well as the lines that make them up. There are times,
+             however, when copying from Line Mode is the only route to take.
+             For example, consider a pillar of one-sided lines in the middle
+             of its surrounding sector. If you were to copy the entire
+             sector, not only would the pillar be copied, but also all the
+             other lines that make up the sector the pillar is in. Instead,
+             use Line Mode to mark the lines that make up the pillar and copy
+             that information to the clipboard.
+
+             - To copy the marked objects to the clipboard, press Ctrl+Ins
+               or choose "Copy" from the Edit Menu.
+             - To cut (copy and then delete) the marked objects, press
+               Ctrl+Del or choose "Cut" from the Edit Menu.
+             - To paste the contents of the clipboard to the map, press Ins
+               or choose "Paste" from the Edit Menu.
+
+                 Note: You can also copy, cut and paste map Items
+                 (monsters and so on.) Simply mark the Items you want to
+                 copy or cut and use the keys listed above.

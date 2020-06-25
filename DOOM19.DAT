@@ -1,0 +1,288 @@
+# Linetypes for doom engines 1.666 and above.
+
+GAMEDATA
+
+[Actions: Normal]
+Normal Line (0); 0
+
+[Actions: Door Open-Close]
+DR Door OpenWaitClose (1); 1
+SR Door OpenWaitClose (63); 63
+S1 Door OpenWaitClose (29); 29
+WR Door OpenWaitClose (90); 90
+W1 Door OpenWaitClose (4); 4
+DR Door OpenWaitClose Blue (26); 26
+DR Door OpenWaitClose Red (28); 28
+DR Door OpenWaitClose Yellow (27); 27
+DR Door OpenWaitClose Blazing (117); 117
+SR Door OpenWaitClose Blazing (114); 114
+S1 Door OpenWaitClose Blazing (111); 111
+WR Door OpenWaitClose Blazing (105); 105
+W1 Door OpenWaitClose Blazing (108); 108
+
+[Actions: Door Open-Stay]
+DR Door OpenStay (31); 31
+SR Door OpenStay (61); 61
+S1 Door OpenStay (103); 103
+WR Door OpenStay (86); 86
+W1 Door OpenStay (2); 2
+GR Door OpenStay (46); 46
+DR Door OpenStay Blue (32); 32
+DR Door OpenStay Red (33); 33
+DR Door OpenStay Yellow (34); 34
+DR Door OpenStay Blazing (118); 118
+SR Door OpenStay Blazing (115); 115
+S1 Door OpenStay Blazing (112); 112
+WR Door OpenStay Blazing (106); 106
+W1 Door OpenStay Blazing (109); 109
+S1 Door OpenStay Blazing Blue (133); 133
+S1 Door OpenStay Blazing Red (135); 135
+S1 Door OpenStay Blazing Yellow (136); 136
+
+[Actions: Door Close]
+SR Door Close (42); 42
+S1 Door Close (50); 50
+WR Door Close (75); 75
+W1 Door Close (3); 3
+SR Door Close Blazing (116); 116
+S1 Door Close Blazing (113); 113
+WR Door Close Blazing (107); 107
+W1 Door Close Blazing (110); 110
+WR Door Close for 30 Seconds (76); 76
+W1 Door Close For 30 Seconds (16); 16
+
+[Actions: Platforms]
+SR Plat DownWaitUpStay (62); 62
+S1 Plat DownWaitUpStay (21); 21
+WR Plat DownWaitUpStay (88); 88
+W1 Plat DownWaitUpStay (10); 10
+SR Plat DownWaitUpStay Blazing (123); 123
+S1 Plat DownWaitUpStay Blazing (122; 122
+WR Plat DownWaitUpStay Blazing (120); 120
+W1 Plat DownWaitUpStay Blazing (121); 121
+WR Plat Start UpWaitDownWait (87); 87
+W1 Plat Start UpWaitDownWait (53); 53
+WR Plat Stop UpWaitDownWait (89); 89
+W1 Plat Stop UpWaitDownWait (54); 54
+
+[Actions: Lighting]
+SR Lights to 255 (138); 138
+SR Lights to 0 (139); 139
+WR Lights To Dimmest Near (78); 78
+W1 Lights To Dimmest Near (104); 104
+WR Lights to 255 (81); 81
+W1 Lights to 255 (13); 13
+WR Lights to Brightest Near (80); 80
+W1 Lights to Brightest Near (12); 12
+WR Lights to 0 (79); 79
+W1 Lights to 0 (35); 35
+W1 Lights Start Strobing (17); 17
+
+[Actions: Teleports and Stairs]
+WR Teleport (97); 97
+W1 Teleport (39); 39
+WR Teleport Monster Only (125); 126
+W1 Teleport Monster Only (125); 125
+S1 Stairs Build 8 High (7); 7
+W1 Stairs Build 8 High (8); 8
+S1 Stairs Build 16 Turbo (127); 127
+W1 Stairs Build 16 Turbo (100); 100
+
+[Actions: Crushers, etc]
+W1 Ceiling Shutter Start (141); 141
+W1 Ceiling Crush Start SlowDmg (6); 6
+WR Ceiling Crush Start SlowDmg (73); 73
+W1 Ceiling Crush Start FastDmg (25); 25
+WR Ceiling Crush Start FastDmg (77); 77
+S1 Ceiling Crush Start FastDmg (49); 49
+W1 Ceiling Crush Stop (57); 57
+WR Ceiling Crush Stop (74); 74
+W1 Ceiling Crush&Stay (44); 44
+WR Ceiling Crush&Stay (72); 72
+S1 Ceiling Lower To Floor (41); 41
+SR Ceiling Lower To Floor (43); 43
+SR Floor Raise Crush (65); 65
+S1 Floor Raise Crush (55); 55
+W1 Floor Raise Crush (56); 56
+WR Floor Raise Crush (94); 94
+
+[Actions: Exits & Scroll Effect]
+S1 Exit Level (11); 11
+W1 Exit Level (52); 52
+W1 Exit To 31 (Secret Level 1) (124); 124
+S1 Exit To 32 (Secret Level 2) (51); 51
+S1 Exit To 9 (Secret Level) (51); 51
+Effect Scrolling First Side (48); 48
+
+[Actions: Floor Lowers]
+S1 Floor Change Donut (9); 9
+WR Floor Lower To Near (83); 83
+W1 Floor Lower To Near (19); 19
+SR Floor Lower To Near (45); 45
+S1 Floor Lower To Near (102); 102
+SR Floor Lower To Lowest (60); 60
+S1 Floor Lower To Lowest (23); 23
+WR Floor Lower To Lowest (82); 82
+W1 Floor Lower To Lowest (38); 38
+WR Floor Lower Turbo (98); 98
+W1 Floor Lower Turbo (36); 36
+SR Floor Lower Turbo (70); 70
+S1 Floor Lower Turbo (71); 71
+WR Floor Lower & Change (84); 84
+W1 Floor Lower & Change (37); 37
+WR Floor Lower Ceiling Raise (85); 85
+W1 Floor Lower Ceiling Raise (40); 40
+
+[Actions: Floor Raises]
+SR Floor Raise (64); 64
+S1 Floor Raise (101); 101
+WR Floor Raise (91); 91
+W1 Floor Raise (5); 5
+SR Floor Raise Turbo (132); 132
+S1 Floor Raise Turbo (131); 131
+WR Floor Raise Turbo (129); 129
+W1 Floor Raise Turbo (130); 130
+SR Floor Raise To Nearest (69); 69
+S1 Floor Raise To Nearest (18); 18
+WR Floor Raise To Nearest (128); 128
+W1 Floor Raise To Nearest (119); 119
+SR Floor Raise 24 (66); 66
+S1 Floor Raise 24 (15); 15
+WR Floor Raise 24 (92); 92
+W1 Floor Raise 24 (58); 58
+SR Floor Raise 32 (67); 67
+S1 Floor Raise 32 (14); 14
+WR Floor Raise 24 & Change (93); 93
+W1 Floor Raise 24 & Change (59); 59
+SR Floor Raise Near & Change (68); 68
+S1 Floor Raise Near & Change (20); 20
+WR Floor Raise Near & Change (95); 95
+W1 Floor Raise Near & Change (22); 22
+WR Floor Raise To Short Tex (96); 96
+W1 Floor Raise To Short Tex (30); 30
+S1 Floor Raise 512 (140); 140
+G1 Floor Raise (24); 24
+G1 Floor Raise Near & Change (47); 47
+
+[Sectors]
+Normal; 0
+Light blinks randomly; 1
+Light blinks on every 0.5 seconds; 2
+Light blinks on every 1.0 seconds; 3
+Light pulses smoothly; 8
+Light blinks on every 1.0 seconds (Synch); 12
+Light blinks on every 0.5 seconds (Synch); 13
+Light flickers like fire; 17
+Secret credit given; 9
+-10% / 20% health; 16
+-05% / 10% health; 5
+-02% / 05% health; 7
+-10% / 20% health & light blinks every 0.5 seconds; 4
+-10% / 20% health until 10% left, then ends level; 11
+30 seconds after level start, closes like a door; 10
+5 minutes after level start, opens and closes; 14
+
+[Angles]
+North; 90
+South; 270
+East; 0
+West; 180
+Northeast; 45
+Northwest; 135
+Southeast; 315
+Southwest; 225
+
+[Thing Info]
+# Thing information: Type; Radius; Height; AngleClash
+# AngleClash: 0 = No angle/clash, 1 = angle, 2 = clash, 3 = angle/clash
+# Nonspecified things have radius of 20 and height of 16, and don't draw
+# angles or clash.
+
+# players, dm, teleport.. etc
+1; 20; 56; 3
+2; 20; 56; 3
+3; 20; 56; 3
+4; 20; 56; 3
+14; 20; 56; 3
+11; 20; 56; 3
+
+# monsters
+3004; 20; 56; 3
+84; 20; 56; 3
+9; 20; 56; 3
+65; 20; 56; 3
+3001; 20; 56; 3
+3002; 30; 56; 3
+58; 30; 56; 3
+3006; 16; 56; 3
+3005; 31; 56; 3
+69; 24; 64; 3
+3003; 24; 64; 3
+68; 64; 64; 3
+71; 31; 56; 3
+66; 20; 56; 3
+67; 48; 64; 3
+64; 20; 56; 3
+7; 128; 100; 3
+16; 40; 110; 3
+
+#other items
+72; 16; 72; 0
+2035; 10; 42; 0
+54; 32; 16; 2
+
+5; 20; 16; 2
+6; 20; 16; 2
+13; 20; 16; 2
+40; 20; 16; 2
+39; 20; 16; 2
+38; 20; 16; 2
+2012; 20; 16; 2
+2011; 20; 16; 2
+2018; 20; 16; 2
+2019; 20; 16; 2
+2025; 20; 16; 2
+2015; 20; 16; 2
+2014; 20; 16; 2
+2013; 20; 16; 2
+2026; 20; 16; 2
+2024; 20; 16; 2
+2023; 20; 16; 2
+2022; 20; 16; 2
+2045; 20; 16; 2
+83; 20; 16; 2
+2001; 20; 16; 2
+2005; 20; 16; 2
+2002; 20; 16; 2
+82; 20; 16; 2
+2003; 20; 16; 2
+2004; 20; 16; 2
+2006; 20; 16; 2
+2007; 20; 16; 2
+2008; 20; 16; 2
+2048; 20; 16; 2
+2049; 20; 16; 2
+2010; 20; 16; 2
+2046; 20; 16; 2
+2047; 20; 16; 2
+17; 20; 16; 2
+8; 20; 16; 2
+
+[Actions without Tag]
+# A list of all the line types that don't require tags.
+1
+99
+26
+28
+27
+117
+31
+32
+33
+34
+118
+48
+124
+11
+52
+51

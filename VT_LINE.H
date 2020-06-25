@@ -1,0 +1,53 @@
+// variable transfer structure
+static VarTransfer_t vtLineTransfer[] =
+{
+    #include "vt_spec.h"
+
+    { "SectorTag",      (Field**)NULL, (PTR) &iSecTag,
+        "Enter the tag of the sector that this activates" },
+    { "Activation",     (Field**)&pfActivation,     (PTR) &iActivation,
+        "Activates the special when a Player crosses the line" },
+    { "ActUse",     (Field**)NULL, (PTR) NULL,
+        "Activates the special when a Player \"uses\" the line" },
+    { "ActMCross",  (Field**)NULL, (PTR) NULL,
+        "Activates the special when a Monster crosses the line" },
+    { "ActImpact",  (Field**)NULL, (PTR) NULL,
+        "Activates the special when a Projectile impacts the line" },
+    { "ActPush",    (Field**)NULL, (PTR) NULL,
+        "Activates the special when a Player pushes the line (wall)" },
+    { "ActPCross",  (Field**)NULL, (PTR) NULL,
+        "Activates the special when a Projectile crosses the line" },
+    { "flRepeatable",   (Field**)&pfRepeatable,     (PTR) &fRepeatable,
+        "Allows the line's special to be activated more than once" },
+    { "flImpassable",   (Field**)&pfImpassable,     (PTR) &fImpassable,
+        "Makes the line impassable to Monsters and Players" },
+    { "flTwoSided",     (Field**)&pfTwoSided,       (PTR) &fTwoSided,
+        "Makes the line two-sided - this is an \"advanced\" setting!" },
+    { "flBlockMonster", (Field**)&pfBlockMonster,   (PTR) &fBlockMonster,
+        "Makes the line impassable to Monsters only" },
+    { "flUnpegTop",     (Field**)&pfUnpegTop,       (PTR) &fUnpegTop,
+        "Draws the top texture from the top-down" },
+    { "flUnpegBottom",  (Field**)&pfUnpegBottom,    (PTR) &fUnpegBottom,
+        "Draws the bottom texture from bottom-up" },
+    { "flSecret",       (Field**)&pfSecret,         (PTR) &fSecret,
+        "Makes the line appear impassable on the auto-map" },
+    { "flBlockSound",   (Field**)&pfBlockSound,     (PTR) &fBlockSound,
+        "Means that sound cannot travel through the line" },
+    { "flNeverMap",     (Field**)&pfNeverMap,       (PTR) &fNeverMap,
+        "The line never appears on the auto-map" },
+    { "flAlwaysMap",    (Field**)&pfAlwaysMap,      (PTR) &fAlwaysMap,
+        "The line is always on the auto-map" },
+    { "SideSwitch",     (Field**)&pfSideSwitch,     (PTR) pbSideToggle,
+        "Click this to edit the other side of the line(s)" },
+    { "SideSector",     (Field**)&pfSideSector,     (PTR) NULL,
+        "The sector that this side of the line faces" },
+    { "SideXOfs",       (Field**)&pfSideXOffset,    (PTR) NULL,
+        "This side's textures will be drawn horizontally starting here" },
+    { "SideYOfs",       (Field**)&pfSideYOffset,    (PTR) NULL,
+        "This side's textures will be drawn vertically starting here" },
+    { "SideDelete",     (Field**)&pfSideDelete,     (PTR) pbSideDelete,
+        "Click this to delete the current side (side 2 only!)" },
+
+    // end marker
+    { NULL, NULL, NULL, NULL }
+};

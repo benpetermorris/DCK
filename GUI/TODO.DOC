@@ -1,0 +1,5 @@
+* dialog exit/enter/validate/save/nosave
+* field user event functions
+* field spare data pointer
+- dboxes: make sure redisplaying works
+- dboxes: left/right/up/down changes field

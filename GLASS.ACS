@@ -1,0 +1,36 @@
+#include "common.acs"
+
+
+// glass breaking script:
+// requires two lines - the activation line (A), and the glass line (B):
+//
+//    |           |
+//    +-----B-----+
+//    |           |
+// ---+-----A-----+---
+//
+// the activation line must be 2s/passable, with no full texture.  the
+// special must be (assuming that this script is saved in MAP01):
+//  ACS_Execute, with args: 1, 1, 1.
+// The activation type must be "Impact."
+// I'll get to the args in a sec.
+//
+// the glass line must be 2s/IMpassable, with the glass texture (any of them)
+// on the first side.  it must
+
+script 1 ( int SpawnAndTag )
+{
+    int i, angle, hspeed, vspeed;
+
+    sectorsound( "GlassShatter", 127 );
+    setlinetexture( SpawnAndTag, SIDE_FRONT, TEXTURE_MIDDLE, "glass07" );
+    setlineblocking( SpawnAndTag, OFF );
+
+    for ( i = 0; i < 20; i++ )  {
+        angle = random( 50, 200 );
+        hspeed = random( 10, 20 );
+        vspeed = random( 20, 60 );
+        Thing_ProjectileGravity( SpawnAndTag,
+            random( T_STAINEDGLASS1, T_STAINEDGLASS0 ), angle, hspeed, vspeed );
+    }
+}

@@ -1,0 +1,190 @@
+--------------------------------------------------------------------
+ DCK - Troubleshooting
+--------------------------------------------------------------------
+
+Contacting me for Technical Support
+-------------------------------------
+
+If you're having problems running DCK, please observe the following points 
+before contacting me. I get a lot of email, and I don't have time to answer 
+all of it!
+
+--------
+Terms
+--------
+
+CONFIG.SYS and AUTOEXEC.BAT are files used by your computer when it's
+starting up.  They can be found in the ROOT directory of your C:
+drive, ie: "C:\CONFIG.SYS" and "C:\AUTOEXEC.BAT".
+
+TSR - "Terminate and Stay Resident" (or "Device Driver".)  This is the
+term given to those programs that are loaded when your system starts
+up and stay active in memory.  Programs like Mouse Drivers and Memory
+Managers are TSRs.
+
+
+-----------------
+What DCK Needs
+-----------------
+
+Make sure your system has the following resources available:
+
+ - 25 "file handles."  This is the number in CONFIG.SYS under the
+   "FILES=" setting - make sure the number after FILES= is at least 25.
+
+ - HIMEM.SYS, or a device driver that provides similar capabilities.
+
+ - About two megabytes of free memory.  If you don't have this much
+   memory, follow the directions below.
+
+---------------
+Starting DCK
+---------------
+
+If you can't get DCK to run (that is, it doesn't load properly and you never 
+see the map editing screen), your problem is probably listed here.
+
+  ---
+
+Symptom:
+- DCK exits with the error message "Can't find driver" or "Can't find video 
+  hardware."
+- DCK starts up, but the screen is garbled or blank.
+
+Problem:
+DCK can't work with your video card directly; you'll have to run DCK in VESA 
+mode. VESA mode is a little slower, but it works with almost any video card.
+
+Solution: 
+Load the VESA driver that came with your video card. The VESA driver is not a 
+Windows driver, it is a .EXE or .COM file named something like "VESA.EXE".  
+For example, ATI video cards include a file called "VVESA.COM". This program 
+should be in the video card support directory on your hard drive.
+
+Once you've located the VESA driver, run it by typing its name in at the DOS 
+prompt. Then, change to your DCK directory and type "dck /v". The /v 
+parameter tells DCK that you want to change your video driver - when the blue 
+menu pops up, select "VESA driver" and press ENTER. Then, select the video 
+mode and continue.
+
+** Please note: You will have to load the VESA driver every time you start 
+   your system if you want to use DCK. A good idea is to edit AUTOEXEC.BAT 
+   and add the command to load the VESA driver at the end of the file.
+
+Other Info:
+If you can't find the VESA driver, you should contact the manufacturer of 
+your video card and request that they send it to you. Alternatively, download 
+this file from the Internet:
+
+    ftp://ftp.islandnet.com/bmorris/univesa.zip
+
+This file is SciTech's "universal VESA driver" that works with many video
+cards. Please note that there is nothing I can do if you have no VESA driver
+and your video card doesn't work with DCK.
+
+  ---
+
+Symptom:
+- DCK doesn't work in Windows 95.
+
+Solution:
+Unfortunately, DCK will not run in Windows 95. You must "Restart the system 
+in DOS mode" to run DCK.
+
+  ---
+
+Symptom:
+- DCK exits with "memget: couldn't allocate nnn bytes", or a similar message.
+
+Problem: 
+DCK is running out of memory. You should have about 5 megabytes of free
+memory before you run DCK.
+
+Solution:
+Run the MAKESWAP utility. Just type MAKESWAP a the DOS prompt, and then
+run DCK again.
+
+---------
+EMM386
+---------
+
+EMM386 has been known to cause problems with DCK.  If your CONFIG.SYS
+file loads EMM386.EXE, follow the instructions listed under "Other
+Problems" a couple pages down.
+
+Or, just remove the driver.
+
+
+-------
+QEMM
+-------
+
+When you install QEMM 7.0+, it places a device driver called QDPMI.SYS
+in your CONFIG.SYS file.  This driver is incompatible with DCK -
+luckily, it's not necessary to install it in most cases.  Simply
+remove or comment the line in CONFIG.SYS that says:
+
+DEVICE=C:\QEMM\QDPMI.SYS
+
+To comment out the line, put the word "REM" in front of it.
+
+
+--------------
+Windows 3.1
+--------------
+
+Note: This is applicable only for Windows 3.1 - DCK WILL NOT RUN
+under Windows NT or Windows 95.  id said it rightly: DOS extenders
+suck.  Thanks, Microsoft!
+
+To run DCK under Windows, you need to do the following:
+
+1. Copy the file WINDPMI.386 into the \WINDOWS\SYSTEM subdirectory.
+2. Add the following line to the [386Enh] section of SYSTEM.INI:
+
+   device=windpmi.386
+
+If you have any problems, please let me know.
+
+Note: I've included DCK.PIF - you should use this instead of DCK.BAT
+or DCK32.EXE when you add DCK to the program manager.
+
+
+-----------------
+Other Problems
+-----------------
+
+If you can't find a solution above, read this section.
+
+Many TSRs and other programs loaded at startup can cause problems with
+DCK because of its use of system resources.  Unfortunately, this is
+not something I can do much about - the standards developed by the
+"big software companies" to allow programs like DCK and the TSRs to
+coexist on a system are not entirely robust and can present many minor
+problems depending on your system's setup.
+
+Therefore, if you're having a problem that you can't find a workaround
+for, I suggest the following course of action:
+
+1. Rename autoexec.bat and config.sys to some other names, like
+   "autoexec.dck" and "config.dck".
+2. Create a new config.sys with the following statements in it:
+
+     FILES=25
+     DEVICE=C:\DOS\HIMEM.SYS
+
+3. Reboot your machine.
+4. Try out DCK again.
+
+If you still have problems, please contact me using the email address
+at the top of the file.
+
+If DCK works properly, the culprit is one of the programs loaded at
+startup; the only way to figure out exactly WHICH program is to add
+lines back into config.sys and autoexec.bat, one by one, and rebooting
+your machine and testing DCK after you've made each change.  This
+method is a last resort, but in most cases the problem will be found
+and you'll be able to use DCK with a slightly modified configuration.
+I wish there were an easier way! 
+
+                                  ###

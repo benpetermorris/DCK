@@ -1,0 +1,8 @@
+enum {
+
+    _CMD_MIN = 0x10000,
+    CMD_FLIPHORIZ,
+    CMD_FLIPVERT,
+    CMD_TAGTOTHING
+
+};

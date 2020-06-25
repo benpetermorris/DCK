@@ -1,0 +1,493 @@
+
+                     -----------------------------------
+                                   DCK 3.62
+                        Release notes and Readme file
+                   e-mail me (Ben Morris) regarding DCK at:
+                            dck-help@islandnet.com
+                     -----------------------------------
+
+---------------
+Introduction
+---------------
+
+Don't forget to check out READTHIS.DOC - it contains fairly important
+information about DCK and Hexen Editing.
+
+DCK can edit all five id/Raven games:
+
+        - Doom: Knee Deep in the Dead
+        - Doom 2: Hell on earth
+        - Heretic
+        - The Ultimate Doom
+        - Hexen: Beyond Heretic
+
+DCK will never support Strife.
+
+--------------------------------
+Changes since the last release
+--------------------------------
+
+06-16-96    Release 3.62
+
+Bugs fixed:
+
+- The item edit line wouldn't let you backspace; fixed.
+- Changed the way the line dialog would ask you if you want to add a
+  second side: now, if you click the Side button while editing a bunch
+  of lines with _no_ second sides, will the dialog ask you.
+- HEXEN.GD used "Gold Key" instead of "Castle Key"; fixed.
+
+Features added:
+
+- You can use 'F' to find a new ID for Line_SetIdentification and for
+  PolyObject linespecials AND items.
+
+
+05-28-96    Release 3.61
+
+Bugs Fixed:
+
+- Some of the arguments for Hexen linespecials did not show up; fixed.
+- If a tool was run and it changed the directory, DCK screwed up; fixed.
+- Putting a for() loop in a Hexen script crashed DCK sometimes. The ACC
+  compiler doesn't support for() loops at all, actually, contrary to the
+  information I received from Raven. Placing a for() loop in a script
+  will now generate an "unrecognised token" error.
+- I placed an Earthquake special in SPECIALS.ACS. It is exactly the same
+  as Radius_Quake.
+- There is no Find+Mark Items feature, contrary to previous versions of
+  DCK.HLP.
+- The unregistered version of DCK had problems with the Item Filter
+  feature; fixed.
+- Changing a line to one-sided did not update the screen immediately;
+  fixed.
+- Some Hexen Items were checked for collision detection with other items
+  when they should not have been; fixed.
+
+New Things:
+
+- I have added Consistency Checker features that check for:
+    - A Hexen PolyObject Anchor that does not have any matching
+      PolyObject StartSpots;
+    - A Hexen PolyObject Anchor that has the same PolyID as another
+      Anchor.
+
+Other Stuff:
+
+- I stopped making big version changes for small bug fixes -- wow!
+
+
+05-18-96    Release 3.6
+
+Bugs Fixed:
+
+- I don't quite understand how this happened, but deleting lines did NOT
+  decrement the count of valid lines. "What?!" -- that's what I said! I have
+  no idea how this bug got in there or why I just noticed it now: after
+  deleting the four lines that made up the only room in a new level, moving
+  the mouse cursor around highlighted 0-length lines _all over the level_.
+  Anyway, it's fixed, but I still don't get it.
+
+
+05-03-96    Release 3.5
+
+Bugs Fixed:
+
+- DCK used to hang sometimes when the Consistency Checker was searching
+  for "Sectors Not Closed." haha .. the reason for this was that DCK
+  couldn't handle Sectors in memory that weren't referenced by any
+  linedefs (ie: leftover Sector definitions.) Duh; fixed.
+
+Changes:
+
+- You can now enter a number for a linespecial easily (in Doom/Heretic) by
+  typing the number and pressing ENTER twice. This didn't work before, but
+  it should have :)
+- Due to some changes recently, DCK had problems working in very high
+  zoom settings. Fixed.
+- I've removed the "Auto-Detect video card" selection: it caused more
+  problems than it solved.
+- The consistency checker kept tellin' everyone that lines had a type, but
+  no tag -- fact is, it was WRONG. WRONG. I have fixed its insubordinate
+  bee-hind.
+
+
+04-18-96    Release 3.4
+
+Bugs Fixed:
+
+- Creating a secret door in any game but Hexen set the Door Lines' type
+  to -1, which would cause DCK to crash when the lines were edited; fixed.
+- Switching to a game that had already been used in the current DCK session
+  told you that a bunch of Motif textures were invalid; fixed.
+- Some people experienced a crash when moving into the PolyID field of
+  PO_xxx Items in Hexen; fixed.
+
+Other Stuff:
+
+- The "Load File" dialog box now starts in the directory that the loaded
+  .WAD is located in; if there is no loaded WAD (untitled), it starts in
+  the current game's directory.
+- I've made the texture names on the status bar stand out a bit more.
+  They're also coloured in the background instead of the foreground, a la
+  2.x.
+
+
+04-05-96    Release 3.3
+
+Bugs Fixed:
+
+- Due to the recent (3.0) conversion to C++, DCK would sometimes crash
+  when the 'new' operator returned NULL because there was no memory left.
+  Now, DCK saves your work to _CRASH.WAD (as usual) and tells you there's
+  no memory left ...
+
+- ... BUT, if the low memory situation was preventing you from running
+  DCK, read on! Borland's PowerPack documentation says that the DPMI
+  server will use virtual memory (temporary hard drive storage) if no real
+  memory is available. This is correct, but ONLY if the MAKESWAP utility
+  is run first. This _minor piece of information_ was left out of the
+  documentation, and I've only just been told about it by the _third_ tech
+  support person I've queried regarding the problem.
+
+  IF you don't experience any crashes or "out of memory" problems, you
+  don't need to worry about MAKESWAP.
+
+  If you DO have problems, simply run the MAKESWAP utility in DCK's
+  directory. I've written a replacement for Borland's utility that
+  not only performs the same function but also modifies DCK.BAT in order
+  to tell DCK to use the swapfile.
+
+  MAKESWAP creates a permanent swapfile of specified size in megabytes on
+  your hard disk -- the default size is 4 megabytes. You can delete the
+  swapfile (DCK.SWP) if you're not using DCK, but you will have to re-run
+  MAKESWAP if you want to use DCK again. If you buy more memory, you can
+  probably delete the swapfile permanently. Hard drive space may be at a
+  premium on your system, but it's far easier to come by than RAM.
+
+- The "Snap Objects to Grid" command (Ctrl+V) did not work correctly;
+  fixed.
+
+- Editing a linedef, picking a special and then editing another linedef
+  would crash DCK; fixed. What a dumb bug -- thanks to all the people who
+  convinced me it wasn't some low memory thing =)
+
+Other Stuff:
+
+- I've neglected to mention the full capabilities of DCK's cut and paste
+  operation for some time now (about a year!) --
+      - If you cut or copy outside sectors to the clipboard, and then
+        paste them inside an existing sector, DCK will convert all the
+        appropriate one-sided lines from the original outside sectors
+        into two-sided lines whose second sides now reference the sector
+        they were pasted into.
+      - Vice-versa: cut or copy inside sectors, and paste them outside --
+        DCK will convert the appropriate two-sided lines into one-sided
+        lines.
+  This is really really useful in some situations. Next time you need to
+  move outside sectors inside, or vice-versa, try it. Remember, you must
+  be in Sector mode when you CUT/COPY and PASTE.
+
+- The clipboard's behavior has also been changed. If you cut or copy
+  lines to the clipboard, DCK will always switch to line mode to paste
+  the lines. This is basically unchanged from previous versions except
+  that the editor automatically switches modes now.
+
+  The difference arises when you cut or copy sectors: if you paste the
+  Sectors you copied while in Line mode, DCK will always switch to Sector
+  mode to paste copied Sectors. It was too easy to forget that you wanted
+  to cut/copy/paste entire Sectors, and the undesirable results of pasting
+  Sectors in Line Mode weren't immediately apparent, causing many
+  irritating problems.
+
+  So, the rule stands clear now: if you want to copy/paste Lines while
+  maintaining their sides' sector references (eg: one-sided pillars), you
+  must copy the Lines while in Line mode. And if you want to create new
+  Sectors by copying existing Sectors and pasting them elsewhere on the
+  map, you must copy the parts of the map in Sector mode. I think this
+  arrangement makes the most sense.
+
+
+03/18/96    Release 3.2
+
+Bugs Fixed:
+
+- All the game parameters (when you run your map) are now written to a
+  response file by DCK (I should have done this ages ago...) -- all the
+  settings work properly now.
+- Deleting a line to join sectors sometimes deleted other lines as well,
+  or crashed the system. This was just a symptom of an insidious problem
+  that I only just slew.. um, slaye.. um.. "got rid of."
+- The palette was still screwed up after running a tool. It is now fixed.
+
+Other stuff:
+
+- You can now register DCK online via Compuserve. Type GO SWREG and enter
+  id number 10392.
+- If you have questions about DCK, please email me at the following new
+  address:
+                            dck-help@islandnet.com
+
+03/07/96    Release 3.1
+
+Bugs Fixed:
+
+- The .GD files still didn't use ZenNode properly.. sigh. Fixed.
+- Sometimes, a level would not run properly due to the misuse
+  of ZenNode; fixed.
+- If you included a texture file in the Textures list that had levels
+  in it, DCK would incorrectly run THAT wad instead of your wad when you
+  pressed F9; fixed.
+- After running a Tool from the Tools menu, the main menu bar disappeared;
+  fixed. Also, the palette was screwed up; fixed.
+- Some of the game data arrays weren't as big as were needed, and memory
+  was being overwritten. This is a bug that's been there since
+  2.2 -- jeez.
+
+Features Added:
+
++ This has been here for the last couple releases, but I forgot to mention
+  it: While you're dragging anything except Items, hold down Ctrl to have
+  the reference cross "snap" to the line that the cursor is over. This is
+  great for creating connected regions.
+
+02/28/96    Release 3.0a
+
+Bugs Fixed:
+
+- Create Outside Region bug fixed.
+- Editing linedefs in non-hexen maps crashed DCK. duhh; fixed.
+- Editing multiple linedefs in non-hexen maps didn't set up the
+  dialog box properly and resulted in wacky linedefs; fixed.
+- Rotating and Scaling lines/sectors would ask you if you wanted
+  to join vertices after you'd finished -- fine, but DCK would join
+  vertices to themselves; fixed.
+- The motif editor treated the wall/flat textures as fields (you
+  could move into them, which served no purpose); fixed.
+- The "Create Door" menu would sometimes appear partially offscreen;
+  fixed.
+- The Popup Help would sometimes obscure the dialog box it was
+  helping you with, which _didn't_ help; fixed.
+- The Polygon tool didn't work! -- oops; fixed.
+- Marking lines/items and switching to sector mode left the same
+  numbered objects marked; fixed.
+- Adding to / removing a file from the list in the Textures dialog
+  didn't update the displayed list; fixed.
+
+Stuff Changed:
+
+* Changed the background colour of dialog box fields to something darker.
+  Now DCK doesn't look so much like Windows 95, and is probably easier on
+  the pink eyes that doomers are all born with :)
+* The tag of a line is now displayed regardless of the line's special.
+
+Features Added (by popular request):
+
++ Added v2-style line grid -- use the 'G' key to toggle between no
+  grid, dot grid and line grid.
++ Created a hybrid between the v2-style selection mechanism (Categories
+  and Items) and the new v3-style (Search Item List.) Chock eet awwwt.
++ Hold down Ctrl and left-click once to quickly create the last kind of
+  Item you edited in Item Mode.
+
+
+02/20/96    Release 3.0
+
+- DCK and HCK combined.
+- Many little bugs fixed.
+- Mirror feature - use the Object menu.
+- "Tips" feature added on startup. You can't get rid of it unless you
+  register :)
+- "Replace Textures" (Alt+R) feature works again.
+- Because I'm such a dissident, DCK now calls THINGs "Items."
+- Full Screen Mode - press 'F' to toggle, or use the Edit Menu.
+- Built-in version of DEACC by Luc Cluitmans.
+- Line-length display while dragging is more intelligent.
+- Hexen: The "create door" dialog box created doors that were activated by
+  _crossing_ the door lines. Useful? no.  Fixed? yes.
+- Hexen: The ';' search key now searches for Items with the same TID
+  as a Line, and Lines with the same TID as a Items.
+- Hexen: The Auto-Tag utility (Ctrl+T) now tags Items to Lines, and
+  vice-versa.
+- Hexen: No more compiler problems - the file ACC.DLL is a loadable
+  version of the script compiler, which is run right inside DCK now.
+- There's a customizable TOOLS menu, just like Windows programs.
+- Hexen: The Consistency Checker (Alt+C) now checks for Lines that require
+  TIDs but don't have them.
+- Hexen: The Consistency Checker now checks for a Player 1 Start that has
+  a blank arg0 parameter (which is required if you just -warp to a
+  level in Hexen.)
+- Hexen: Player Starts now have an editable arg0 parameter.
+- The status bars are about 25% smaller, so you get more map space.
+- Hexen: Item and Line Properties dialog boxes now have a "Clear" button
+  that sets all the unused special args to 0.
+
+12/07/95   Beta 3
+
+- There were STILL problems with the "find Hexen" feature.  This has been
+  fixed.
+- The "Create Door" feature never set the Repeatable flag, even if the
+  checkbox was set.  Fixed.
+- Saving a new map didn't prompt for a filename - DCK just saved the map
+  as MAP01 in UNTITLED.WAD.  DCK now prompts for a filename.
+- The save status window was a little messed up.
+- A couple minor interface changes.
+- Editing multiple THINGs with different TIDs set all the TIDs to the
+  first selected THING's TID.  Fixed.
+- Creating a new THING set its TID to that of the last thing edited. It
+  is now set to 0.
+- Deleting sectors didn't work.
+- The auto-tag-set function didn't work properly.
+- The Sector number is now displayed on the Sector info status bar.
+- Deleting a line to join two sectors didn't work properly.
+- The beta testers didn't work properly.
+- I'm joking!
+
+
+12/06/95   Beta 2
+
+- If your copy of Hexen wasn't in C:\HEXEN, DCK would crash when it
+  first loaded, after scanning and finding Hexen.  It was work-around-
+  able, but what a dumb bug!  This is fixed.
+
+
+Now, on to the good stuff:
+
+---------------------
+What's new for 3.0?
+---------------------
+
+New Features:
+
+- Hexen support, of course! DCK contains lots of Hexen-specific
+  enhancements:
+     - Pop-up choices for Arguments, where available - for example, you
+       can pop up a list of THINGS to spawn for the Thing_Spawn...
+       specials;
+     - Built-in version of the ACS script compiler;
+     - Edit your map's script right from DCK, using your favorite DOS
+       editor;
+     - Fully supports THINGS that take Arguments;
+     - Highlights the relationship between THING TIDs and Lines whose
+       Specials reference those TIDs.
+
+- No more built-in nodebuilder, so you can use whichever you prefer.
+
+- "Drag-and-align" texture alignment.  Besides having a really crafty
+  name, this feature is very useful: DCK displays the texture you
+  want to align and allows you to drag a crosshair to exactly the
+  point that you want DOOM to start displaying the texture.
+
+- Integrated vertex and line modes!  No more switching back and forth
+  in order to make structural changes.  This is a BIG timesaver.
+
+- A totally new user interface.  It looks and acts a lot more like
+  Windows, and is much easier on the mouse hand.
+   - More responsive dialog box controls, drag-scrolling listboxes,
+     and so on.  Buttons actually push DOWN now - incredible!
+   - PopUp help in dialog boxes.  If you like, DCK will display a
+     description of the field you're editing in a Pop-Up window beside
+     the dialog box.  You can turn this on and off in File|Configure.
+   - A nicer-looking, proportional font.
+   - More configuration options.
+   - A much quicker method of finding what you're looking for in lists
+     of items, specials and so on: type a couple abbreviated words and
+     DCK displays all the items that contain those words.  You'll see
+     what a difference this makes when you're looking for that bloody
+     green thing, but you can't remember what its proper name is!
+   - A real mouse cursor instead of that awful green thing.
+
+- A full-screen texture browser with multiple zoom levels: view
+  textures from 256x128 all the way down to 32x32.  The new browser
+  will optionally display names only (with one picture at the bottom),
+  so you can view most of the textures available for picking without
+  having to page-down the list.
+
+- More informative status bars contain all the information for Hexen
+  objects.
+
+- Small features like:
+   - Shift-key flag toggling.  In line mode and thing mode, you can
+     turn on and off any of the object flags just by hitting a
+     Shift-key combination.
+   - Ctrl+Left and Ctrl+Right rotate THING objects.
+   - Horizontal and Vertical mirroring.
+
+- You guessed it: And even More!
+
+
+All the good old features of previous releases:
+
+- Graphical THING display: shows graphics of the Things in the game,
+  right on the map!
+- Rectangle and Polygon tools.
+- A fast wall and floor/ceiling texture browser.
+- Runs the game right from within the editor, so you can test your
+  levels out and get right back to editing!
+- Seamless support for custom textures.
+- Automatic texture-alignment tools.
+- A clipboard with Cut, Copy and Paste - even between levels!
+- Full drag and drop functions.
+- An easy-to-use and thorough map "error checker."
+- An UNDO feature.
+- A powerful, built-in WAD management tool.
+- Motifs: named sets of wall and floor/ceiling textures for "coloring"
+  areas of your map quickly and easily.
+
+
+Future plans?:
+
+- There WILL be a much-nicer-looking help system sometime soon, with
+  hypertext links and other cool stuff.
+
+- This is a maybe, but a texture-creation facility has always been on
+  my to-do list.  If I find the time..!
+
+- Project files.  Hexen maps have script functionality, so you have to
+  have some way of telling DCK which script goes with the map you're
+  editing.  Project files also allow you to specify multiple sequences
+  of "level-building" - for example, you could have a sequence that
+  builds the BSP at a draft level and runs the map so you can check out
+  your texture alignments quickly, and a sequence that builds the entire
+  10-level PWAD you're working on and zips it up for distribution.
+  These are simple descriptions, because projects are totally
+  configurable.  Kind of nifty.
+
+
+Bugs fixed:
+
+- Deleting multiple sectors in one operation never worked before.
+- The crashing bug has been fixed -- i hope.
+
+----------------------------------
+What's in the registered version
+----------------------------------
+
+- The WAD manager.
+- Graphical Item display.
+- Item Display Filter (for example, to display only those
+  items that appear on skills 1 and 2.)
+- A feature to find the selected object's associated-
+  by-sector-tag objects.
+- No more welcome windows.
+
+- A printed manual!
+
+----------------------
+Where can i get it?!
+----------------------
+
+DCK is available at the following locations.  It should be under the
+filename "DCKnn.ZIP" (where nn is the version, eg: 30 for 3.0)
+
+FTP -
+  Always at:
+   ftp.cdrom.com                /pub/doom2/utils/level_edit/
+   ftp.islandnet.com (T1 link)  /bmorris/
+
+WWW -
+   http://www.islandnet.com/~bmorris/
+   (Registered users can find updates here.)
+
+Other -
+   Compuserve                   ACTION forum, browse for DCK*.ZIP
